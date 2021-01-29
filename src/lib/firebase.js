@@ -9,6 +9,7 @@ const firebaseConfig = {
 firebase.initializeApp(firebaseConfig);
 
 let database = firebase.firestore();
+export let auth = firebase.auth();
 
 export const createPosts = ({message, user}) => {
     database.collection("posts").add({
@@ -17,5 +18,11 @@ export const createPosts = ({message, user}) => {
     })
     .then(docRef => console.log("Document written with ID: ", docRef.id))
     .catch(error => console.error("Error adding document: ", error));
+};
+
+export const login = (email, password) => {
+  return firebase.auth().signInWithEmailAndPassword(email, password)
+  .then((user) => console.log('sign in', user))
+  .catch((error) => console.log('error', error)); 
 };
 

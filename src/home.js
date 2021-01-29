@@ -1,7 +1,6 @@
 import { postBuilder } from './postBuilder.js';
 import { createPosts } from './lib/firebase.js';
 
-console.log('postbuilder', postBuilder())
 export const home = () => `
     <h1>Home</h1>
     ${postBuilder()}
@@ -9,7 +8,7 @@ export const home = () => `
 
 window.addEventListener('DOMContentLoaded', () => {
     let button = document.getElementById('post-button');
-    button.addEventListener('click', () => {
+    button?.addEventListener('click', () => {
         let message = document.getElementById('post').value;
         createPosts({message, user:'Adrianititititita'})
     });
