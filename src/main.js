@@ -1,37 +1,29 @@
-// Este es el punto de entrada de tu aplicacion
-import { onNavigate, routes } from './utils/router.js';
-import { auth } from './lib/firebase.js';
+import FirebaseWrapper from './lib/firebase.js';
+import * as router from './router.js';
+import Home from './pages/home/Home.js';
+import Login from './pages/Login.js';
 
-const rootDiv = document.getElementById('root');
-const homeElement = document.getElementById('home');
-const commentsElement = document.getElementById('comments');
-const loginElement = document.getElementById('login');
+const targetElement = document.getElementById('root');
 
-homeElement.addEventListener('click', (e) => {
-    e.preventDefault();
-    onNavigate('/home');
-});
+const firebaseConfig = {
+  apiKey: 'AIzaSyAxKjqTudxBWi9j9i4IDKn450hmM1m_w3A',
+  authDomain: 'red-social-coaches.firebaseapp.com',
+  projectId: 'red-social-coaches',
+  appId: '1:489293961166:web:e0ae10e7b6db857d26fd9f',
+};
 
-commentsElement.addEventListener('click', (e) => {
-    e.preventDefault();
-    onNavigate('/comments');
-});
-
-loginElement.addEventListener('click', (e) => {
-    e.preventDefault();
-    onNavigate('/');
-});
+firebase.initializeApp(firebaseConfig);
+const dependencies = FirebaseWrapper(firebase);
+const routes = { '/': Home(dependencies), '/login': Login(dependencies) };
+router.load(targetElement, routes);
 
 window.addEventListener('DOMContentLoaded', () => {
-    auth.onAuthStateChanged(function(user) {
-        if (user) {
-          console.log('user', user)
-        } else {
-          console.log('user is not sign in')
-        }
-      });
+  router.render(window.location.pathname);
+
+  firebase.auth().onAuthStateChanged((user) => {
+    console.log('user has changed', user);
+    router.dispatchAndRender(user ? '/' : '/login');
+  });
 });
 
-const currentRoute = routes[window.location.pathname];
-rootDiv.innerHTML = currentRoute(); //nos da la ruta en la cual estamos ubicados
-
+window.addEventListener('popstate', () => router.render(window.location.pathname));
