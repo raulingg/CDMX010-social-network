@@ -1,13 +1,13 @@
-import { home } from '../home.js';
-import { comments } from '../comments.js';
-import { loginComponent } from '../login.js';
+import { homeController } from '../controllers/homeController.js';
+import { comments } from '../components/comments.js';
+import { loginController } from '../controllers/loginController.js';
 
 const rootDiv = document.getElementById('root');
 
 export const routes = {
-    '/': loginComponent,
-    '/home': home,
-    '/comments': comments
+    '/': loginController,
+    '/home': homeController,
+    // '/comments': comments
 };
 
 export const onNavigate = (pathname) => {
@@ -16,6 +16,6 @@ export const onNavigate = (pathname) => {
         pathname,
         window.location.origin + pathname
     )
-    const buildView = routes[pathname]
-    rootDiv.innerHTML = buildView()
+    const buildController = routes[pathname]
+    buildController()
 };
