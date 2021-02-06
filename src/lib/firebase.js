@@ -1,20 +1,16 @@
 export default (firebase) => {
-  const getPosts = ({ limit = 20, startAfter, orderBy } = {}) => {
-    const postsRef = firebase.firestore().collection('posts');
-
-    if (orderBy) { postsRef.orderBy(orderBy); }
-
-    if (startAfter) postsRef.startAfter(startAfter);
-
-    postsRef.limit(limit);
-
-    return postsRef.get().then((querySnapshot) => {
+  const getPosts = ({
+    limit = 20, orderBy = 'createdAt', sort = 'desc',
+  } = {}) => firebase.firestore().collection('posts')
+    .orderBy(orderBy, sort)
+    .limit(limit)
+    .get()
+    .then((querySnapshot) => {
       const posts = [];
       querySnapshot.forEach((doc) => posts.push(doc.data()));
 
       return posts;
     });
-  };
 
   const createPost = ({ message, user, createdAt }) => firebase.firestore()
     .collection('posts')
