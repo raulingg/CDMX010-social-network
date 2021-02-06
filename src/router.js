@@ -1,24 +1,18 @@
-const routes = {};
-let target;
-
-export const load = (originalTarget, originalRoutes) => {
-  target = originalTarget;
-  Object.assign(routes, originalRoutes);
+const props = {
+  routes: {},
+  target: null,
+  dependencies: {},
 };
 
-export const get = (key) => routes[key];
+export const load = (originalProps) => Object.assign(props, originalProps);
 
-export const render = (key) => {
-  const component = get(key);
-  // eslint-disable-next-line no-param-reassign
-  target.innerHTML = component.render();
-
-  if (typeof component.attachListeners === 'function') {
-    component.attachListeners();
-  }
+export const dispatch = (key) => {
+  const controller = props.routes[key];
+  controller(props.target, props.dependencies);
 };
 
-export const dispatchAndRender = (pathname) => {
+export const goTo = (pathname) => {
+  console.log('going to ', pathname);
   window.history.pushState({}, pathname, window.location.origin + pathname);
-  render(window.location.pathname);
+  dispatch(window.location.pathname);
 };
