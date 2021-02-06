@@ -3,7 +3,6 @@
 import PostBuilder from './components/PostBuilder.js';
 import Post from './components/Post.js';
 import NavBar from './components/NavBar.js';
-import { addGlobalEventListener } from '../../utils/index.js';
 
 export default ({ getUser, createPost, signOut }) => ({
   html() {
@@ -35,7 +34,8 @@ export default ({ getUser, createPost, signOut }) => ({
   },
   render(target) {
     target.innerHTML = this.html();
-    addGlobalEventListener({ event: 'click', selector: '#submitBtn', callback: this.onCreatePostHandler });
-    addGlobalEventListener({ event: 'click', selector: '#signOut', callback: this.onSignOutHandler });
+
+    document.getElementById('submitBtn').addEventListener('click', this.onCreatePostHandler);
+    document.getElementById('signOut').addEventListener('click', this.onSignOutHandler);
   },
 });

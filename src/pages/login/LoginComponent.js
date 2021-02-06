@@ -1,5 +1,4 @@
 /* eslint-disable no-param-reassign */
-import { addGlobalEventListener } from '../../utils/index.js';
 
 export default ({ signIn }) => ({
   html() {
@@ -28,6 +27,6 @@ export default ({ signIn }) => ({
   },
   render(target) {
     target.innerHTML = this.html();
-    addGlobalEventListener({ event: 'click', selector: 'input[type=submit]', callback: this.onSignInHandler });
+    document.querySelector('input[type=submit]').addEventListener('click', this.onSignInHandler);
   },
 });
