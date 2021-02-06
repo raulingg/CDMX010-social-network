@@ -1,10 +1,9 @@
-import FirebaseWrapper from './lib/firebase.js';
+import FirebaseFactory from './lib/firebase.js';
 import * as router from './router.js';
-import Home from './pages/home/Home.js';
-import Login from './pages/Login.js';
+import HomeController from './pages/home/HomeController.js';
+import LoginController from './pages/login/LoginController.js';
 
-const targetElement = document.getElementById('root');
-
+const target = document.getElementById('root');
 const firebaseConfig = {
   apiKey: 'AIzaSyAxKjqTudxBWi9j9i4IDKn450hmM1m_w3A',
   authDomain: 'red-social-coaches.firebaseapp.com',
@@ -13,17 +12,14 @@ const firebaseConfig = {
 };
 
 firebase.initializeApp(firebaseConfig);
-const dependencies = FirebaseWrapper(firebase);
-const routes = { '/': Home(dependencies), '/login': Login(dependencies) };
-router.load(targetElement, routes);
+const dependencies = FirebaseFactory(firebase);
+const routes = { '/': HomeController, '/login': LoginController };
+router.load({ target, routes, dependencies });
 
 window.addEventListener('DOMContentLoaded', () => {
-  router.render(window.location.pathname);
-
-  firebase.auth().onAuthStateChanged((user) => {
-    console.log('user has changed', user);
-    router.dispatchAndRender(user ? '/' : '/login');
-  });
+  firebase.auth().onAuthStateChanged(
+    (user) => console.log(user) || router.goTo(user ? '/' : '/login'),
+  );
 });
 
-window.addEventListener('popstate', () => router.render(window.location.pathname));
+window.addEventListener('popstate', () => router.dispatch(window.location.pathname));
