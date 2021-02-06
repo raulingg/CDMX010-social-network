@@ -1,16 +1,31 @@
 export default (firebase) => {
-  const getPosts = ({
-    limit = 20, orderBy = 'createdAt', sort = 'desc',
-  } = {}) => firebase.firestore().collection('posts')
-    .orderBy(orderBy, sort)
-    .limit(limit)
-    .get()
-    .then((querySnapshot) => {
-      const posts = [];
-      querySnapshot.forEach((doc) => posts.push(doc.data()));
+  const getPosts = async ({
+    limit = 5, lastVisible = 0, orderBy = 'createdAt', sort = 'desc',
+  } = {}) => {
+    const ref = firebase.firestore().collection('posts').orderBy(orderBy, sort);
 
-      return posts;
+    let querySnap;
+    if (lastVisible) {
+      querySnap = await ref.startAfter(lastVisible).limit(limit).get();
+    } else {
+      querySnap = await ref.limit(limit).get();
+    }
+
+    const posts = [];
+    querySnap.forEach((doc) => {
+      const post = doc.data();
+      posts.push({
+        ...post,
+        createdAt: post.createdAt.toDate(),
+      });
     });
+
+    return {
+      posts,
+      lastVisible: querySnap.docs[querySnap.docs.length - 1],
+      hasMore: posts.length === limit,
+    };
+  };
 
   const createPost = ({ message, user, createdAt }) => firebase.firestore()
     .collection('posts')

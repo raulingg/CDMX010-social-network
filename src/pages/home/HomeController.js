@@ -10,7 +10,7 @@ export default async (target, {
     getUser, signOut, createPost, getPosts,
   });
   view.render(target);
-  const posts = await getPosts();
-
-  view.showPosts(posts);
+  const result = await getPosts();
+  view.setData(result);
+  view.showPosts();
 };
