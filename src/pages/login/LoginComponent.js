@@ -1,8 +1,7 @@
 /* eslint-disable no-param-reassign */
 
-export default ({ signIn }) => ({
-  html() {
-    return `
+export default ({ signIn }) => {
+  const html = () => `
       <div>
         <form>
           <label for="email">Email</label></br>
@@ -14,8 +13,8 @@ export default ({ signIn }) => ({
         <p id="errorMessage"></p>
       </div>    
     `;
-  },
-  onSignInHandler(e) {
+
+  const onSignInHandler = (e) => {
     e.preventDefault();
     const email = document.getElementById('email').value;
     const password = document.getElementById('password').value;
@@ -24,9 +23,14 @@ export default ({ signIn }) => ({
       document.getElementById('errorMessage').innerHTML = error.message;
       e.target.value = 'Sign In';
     });
-  },
-  render(target) {
-    target.innerHTML = this.html();
-    document.querySelector('input[type=submit]').addEventListener('click', this.onSignInHandler);
-  },
-});
+  };
+
+  const render = (target) => {
+    target.innerHTML = html();
+    document.querySelector('input[type=submit]').addEventListener('click', onSignInHandler);
+  };
+
+  return {
+    render,
+  };
+};
