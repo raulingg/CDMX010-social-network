@@ -6,7 +6,9 @@ export default async (target, {
   getUser,
   getPosts,
 }) => {
-  const view = Home({ getUser, signOut, createPost });
+  const view = Home({
+    getUser, signOut, createPost, getPosts,
+  });
   view.render(target);
   const posts = await getPosts();
 
