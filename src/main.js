@@ -1,4 +1,4 @@
-import FirebaseFactory from './lib/firebase.js';
+import FirebaseClientFactory from './lib/firebaseClient.js';
 import * as router from './router.js';
 import HomeController from './pages/home/HomeController.js';
 import LoginController from './pages/login/LoginController.js';
@@ -12,9 +12,9 @@ const firebaseConfig = {
 };
 
 firebase.initializeApp(firebaseConfig);
-const dependencies = FirebaseFactory(firebase);
+const firebaseClient = FirebaseClientFactory(firebase);
 const routes = { '/': HomeController, '/login': LoginController };
-router.load({ target, routes, dependencies });
+router.load({ target, routes, dependencies: { firebaseClient } });
 
 window.addEventListener('DOMContentLoaded', () => {
   firebase.auth().onAuthStateChanged(

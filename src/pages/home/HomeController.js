@@ -1,16 +1,9 @@
 import Home from './HomeComponent.js';
 
-export default async (target, {
-  createPost,
-  signOut,
-  getUser,
-  getPosts,
-}) => {
-  const view = Home({
-    getUser, signOut, createPost, getPosts,
-  });
+export default async (target, { firebaseClient }) => {
+  const view = Home({ firebaseClient });
   view.render(target);
-  const result = await getPosts();
+  const result = await firebaseClient.post.list();
   view.setData(result);
   view.showPosts();
 };

@@ -1,5 +1,5 @@
 export default (firebase) => {
-  const getPosts = async ({
+  const list = async ({
     limit = 5, lastVisible = 0, orderBy = 'createdAt', sort = 'desc',
   } = {}) => {
     const ref = firebase.firestore().collection('posts').orderBy(orderBy, sort);
@@ -16,7 +16,9 @@ export default (firebase) => {
       const post = doc.data();
       posts.push({
         ...post,
+        id: doc.id,
         createdAt: post.createdAt.toDate(),
+        updatedAt: post.updatedAt?.toDate(),
       });
     });
 
@@ -27,11 +29,22 @@ export default (firebase) => {
     };
   };
 
-  const createPost = ({ message, user, createdAt }) => firebase.firestore()
+  const create = ({ message, user, createdAt }) => firebase.firestore()
     .collection('posts')
     .add({ message, user, createdAt })
-    .then((docRef) => console.log('Document written with ID: ', docRef.id))
+    .then((docRef) => docRef.id)
     .catch((error) => console.error('Error adding document: ', error));
+
+  const update = (id, { message, updatedAt }) => firebase.firestore()
+    .doc(`posts/${id}`)
+    .update({ message, updatedAt })
+    .catch((error) => console.error('Error updating the document: ', error));
+
+  const remove = (id) => firebase.firestore()
+    .doc(`posts/${id}`)
+    .delete()
+    .then(() => console.log('Document deleted'))
+    .catch((error) => console.error('Error deleting document: ', error));
 
   const signIn = (email, password) =>
     // eslint-disable-next-line implicit-arrow-linebreak
@@ -44,10 +57,16 @@ export default (firebase) => {
   const getUser = () => firebase.auth().currentUser;
 
   return {
-    createPost,
-    signIn,
-    signOut,
-    getUser,
-    getPosts,
+    auth: {
+      signIn,
+      signOut,
+      getUser,
+    },
+    post: {
+      create,
+      list,
+      update,
+      remove,
+    },
   };
 };
