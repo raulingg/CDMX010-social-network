@@ -20,6 +20,24 @@ export const createPosts = ({message, user}) => {
     .catch(error => console.error("Error adding document: ", error));
 };
 
+export const getPosts = () => {
+  return database.collection("posts").get()
+  .then(function(querySnapshot) {
+    let docs = [];
+    querySnapshot.forEach(function(doc) {
+      // doc.data() is never undefined for query doc snapshots
+      docs.push(doc.data());
+    });
+    return docs;
+  })
+  .catch(function(error) {
+      console.log("Error getting documents: ", error);
+  });
+
+};
+
+export const getUser = () => firebase.auth().currentUser;
+
 export const login = (email, password) => {
   return firebase.auth().signInWithEmailAndPassword(email, password)
   .then((user) => console.log('sign in', user))

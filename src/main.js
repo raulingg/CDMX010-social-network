@@ -1,6 +1,6 @@
 // Este es el punto de entrada de tu aplicacion
 import { onNavigate, routes } from './utils/router.js';
-import { auth } from './lib/firebase.js';
+import { auth, getPosts } from './lib/firebase.js';
 
 const rootDiv = document.getElementById('root');
 const homeElement = document.getElementById('home');
@@ -25,13 +25,14 @@ loginElement.addEventListener('click', (e) => {
 window.addEventListener('DOMContentLoaded', () => {
     auth.onAuthStateChanged(function(user) {
         if (user) {
-          console.log('user', user)
+            onNavigate('/home')
         } else {
-          console.log('user is not sign in')
+            onNavigate('/')
         }
-      });
+    });
 });
 
-const currentRoute = routes[window.location.pathname];
-rootDiv.innerHTML = currentRoute(); //nos da la ruta en la cual estamos ubicados
+window.addEventListener('load', () => {
+    getPosts().then(result => console.log(result));
+});
 
