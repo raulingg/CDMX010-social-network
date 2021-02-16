@@ -10,7 +10,7 @@ export default ({ signIn }) => {
           <input type"password" name="password" id="password" value=""></br>
           <input type="submit" value="Sign In">
         </form>
-        <p id="errorMessage"></p>
+        <p id="errorMessage" data-testid="errorMessage"></p>
       </div>    
     `;
 
@@ -20,6 +20,7 @@ export default ({ signIn }) => {
     const password = document.getElementById('password').value;
     e.target.value = 'Submitting ...';
     signIn(email, password).catch((error) => {
+      console.log(error.message);
       document.getElementById('errorMessage').innerHTML = error.message;
       e.target.value = 'Sign In';
     });

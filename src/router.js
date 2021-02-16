@@ -12,7 +12,6 @@ export const dispatch = (key) => {
 };
 
 export const goTo = (pathname) => {
-  console.log('going to ', pathname);
   window.history.pushState({}, pathname, window.location.origin + pathname);
   dispatch(window.location.pathname);
 };
