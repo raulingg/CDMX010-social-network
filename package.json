@@ -34,5 +34,9 @@
   },
   "engines": {
     "node": ">=10"
+  },
+  "dependencies": {
+    "firebase": "^8.2.7",
+    "typescript": "^4.1.5"
   }
 }
