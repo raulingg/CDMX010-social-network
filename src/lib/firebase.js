@@ -13,83 +13,83 @@ const firebaseConfig = {
 firebase.initializeApp(firebaseConfig);
 
 export function registrar (email, password) {
-firebase.auth().createUserWithEmailAndPassword(email, password)
-  .then((user) => {
-    // Signed in
-    // ...
-  })
-  .catch((error) => {
-    var errorCode = error.code;
-    var errorMessage = error.message;
-    console.log(errorCode);
-    console.log(errorMessage);
-    // ..
+  firebase.auth().createUserWithEmailAndPassword(email, password)
+    .then((user) => {
+      // Signed in
+      // ...
+    })
+    .catch((error) => {
+      var errorCode = error.code;
+      var errorMessage = error.message;
+      console.log(errorCode);
+      console.log(errorMessage);
+      // ..
+    });
+  };
+  
+  export function signIn (emailSignIn, passwordSingnIn) {
+    firebase.auth().signInWithEmailAndPassword(emailSignIn, passwordSingnIn)
+    .then((user) => {
+      // Signed in
+      // ...
+    })
+    .catch((error) => {
+      var errorCode = error.code;
+      var errorMessage = error.message;
+      console.log(errorCode);
+      console.log(errorMessage);
+    });
+  };
+  
+  export function observador () {
+    firebase.auth().onAuthStateChanged(function(user) {
+      if (user) {
+        console.log("usuario activo");
+        home(user);
+        // let emailVerify = user.emailVerify;
+        // User is signed in.
+        // let displayName = user.displayName;
+        // let email = user.email;
+        // console.log(displayName);
+        // console.log(email);
+      } else {
+        console.log("no existe usuario activo");
+        // No user is signed in.
+      }
+    });
+  };
+  observador()
+  
+  function home (user) {
+  //  let user = user;
+   let contenido = document.getElementById("home");
+   if (user.emailVerify)
+   contenido.innerHTML = `
+   <p>Bienvenida</p>
+   <button>Cerrar sesión</button>
+   ` 
+  };
+  
+  function verificar () {
+    let user = firebase.auth().currentUser;
+  
+  user.sendEmailVerification().then(function() {
+    // Email sent.
+    console.log("enviando correo");
+  }).catch(function(error) {
+    // An error happened.
+    console.log(error);
   });
-};
-
-export function signIn (emailSignIn, passwordSingnIn) {
-  firebase.auth().signInWithEmailAndPassword(emailSignIn, passwordSingnIn)
-  .then((user) => {
-    // Signed in
-    // ...
-  })
-  .catch((error) => {
-    var errorCode = error.code;
-    var errorMessage = error.message;
-    console.log(errorCode);
-    console.log(errorMessage);
-  });
-};
-
-export function observador () {
-  firebase.auth().onAuthStateChanged(function(user) {
-    if (user) {
-      console.log("usuario activo");
-      home(user);
-      // let emailVerify = user.emailVerify;
-      // User is signed in.
-      // let displayName = user.displayName;
-      // let email = user.email;
-      // console.log(displayName);
-      // console.log(email);
-    } else {
-      console.log("no existe usuario activo");
-      // No user is signed in.
-    }
-  });
-};
-observador()
-
-function home (user) {
-//  let user = user;
- let contenido = document.getElementById("home");
- if (user.emailVerify)
- contenido.innerHTML = `
- <p>Bienvenida</p>
- <button>Cerrar sesión</button>
- ` 
-};
-
-function verificar () {
-  let user = firebase.auth().currentUser;
-
-user.sendEmailVerification().then(function() {
-  // Email sent.
-  console.log("enviando correo");
-}).catch(function(error) {
-  // An error happened.
-  console.log(error);
-});
-};
-console.log(verificar);
-// export function registrar (){
-//       let email = document.getElementById("email").value;
-//       let password = document.getElementById("password").value;
-//       console.log(email);
-//       console.log(password);
-//   return
-// };
-
+  };
+  console.log(verificar);
+  // export function registrar (){
+  //       let email = document.getElementById("email").value;
+  //       let password = document.getElementById("password").value;
+  //       console.log(email);
+  //       console.log(password);
+  //   return
+  // };
+  
 
 
 // firebase.auth().createUserWithEmailAndPassword(email, password)

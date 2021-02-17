@@ -19,6 +19,8 @@ const registro = document.getElementById("registro");
     console.log("este usuario si pudo ingresar");
   });
 
+  
+
 
 
 
