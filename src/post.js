@@ -1,0 +1,1 @@
+export const post = () => `<h1>I am post</h1>`;
