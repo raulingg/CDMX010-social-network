@@ -1,0 +1,1 @@
+export const contact = `<h1> Hola soy el contacto</h1>`;

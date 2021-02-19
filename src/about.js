@@ -1,0 +1,1 @@
+export let about = `<h1> Hola soy el acerca de.... </h1>`;
