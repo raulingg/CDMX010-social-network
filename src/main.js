@@ -9,10 +9,9 @@ import { contact } from './contact.js';
 import { about } from './about.js';
 
 const routes = { //Array donde estarán las rutas que necesitamos, referencia directa de los botones
-    ' / ': home, //Valor que se consulta en cada elemento
+    '/': home, //Valor que se consulta en cada elemento
     '/contact': contact,
-    '/about': about
-
+    '/about': about,
 };
 
 const rootDiv = document.getElementById('root');
@@ -23,10 +22,10 @@ const onNavigate = (pathname) => {
         {},
         pathname,
         window.location.origin + pathname
-    )
+    ),
     rootDiv.innerHTML = routes[pathname]
-}
-
+};
  window.onpopstate = () => {
  rootDiv.innerHTML = routes[window.location.pathname]
 }
+window.onNavigate = onNavigate

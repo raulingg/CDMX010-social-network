@@ -1,0 +1,13 @@
+body{
+    margin: 0;
+    padding: 0;
+    background-color: coral;
+}
+
+.hola{
+    color:blueviolet;
+}
+
+#root .parrafo{
+    color:red;
+}

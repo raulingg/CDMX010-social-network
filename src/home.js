@@ -1,1 +1,1 @@
-export const home = `<h1> Hola </h1>`;
+export const home = '<h1>Hola</h1>'
