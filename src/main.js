@@ -15,17 +15,19 @@ const routes = { //Array donde estarán las rutas que necesitamos, referencia di
 };
 
 const rootDiv = document.getElementById('root');
-rootDiv.innerHTML = routes[window.location.pathname];
+rootDiv.innerHTML = routes[window.location.pathname]; //
 
 const onNavigate = (pathname) => {
-    window.history.pushState(
-        {},
-        pathname,
-        window.location.origin + pathname
-    ),
-    rootDiv.innerHTML = routes[pathname]
+  window.history.pushState(
+    {},
+    pathname,
+    window.location.origin + pathname,
+  )
+  rootDiv.innerHTML = routes[pathname]
 };
- window.onpopstate = () => {
- rootDiv.innerHTML = routes[window.location.pathname]
-}
+
 window.onNavigate = onNavigate
+
+window.onpopstate = () => {
+  rootDiv.innerHTML = routes[window.location.pathname];
+};
