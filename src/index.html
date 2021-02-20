@@ -7,14 +7,88 @@
   <title>I care</title>
 </head>
 <body>
-  <nav>
-   <ul>
-    <li><a href="#" id="login">Login</a></li>
-    <li><a href="#" id="home">Home</a></li>
-    <li><a href="#" id="post">Post</a></li>
+  <header>
+    <nav>
+      <ul>        
+        <li><a href="#" id="home">Inicio</a></li>
+       <li><a href="#" id="singUp">Crear Cuenta</a></li>
+       <li><a href="#" id="login">Ingresar</a></li>
+       <li><a href="#" id="post">Publicaciones</a></li>
+       <li><a href="#" id="logout">Cerrar sesión</a></li>
+      </ul>
+     </nav>
+  </header>
+  <!--Main content-->
+  <div class="container">
+   <ul class="lisGroup" id="myPost">
+     <!-- <li class="item">
+       <h3>Título</h3>
+       <p>Lorem ipsum dolor sit.</p>
+     </li> -->
    </ul>
-  </nav>
+  </div>
+
   <div id="root"></div>
+  <section>
+    <!--Crear Cuenta-->
+    <form id="singUp-form" action="">
+      <div class="formGroup">
+        <input type="text" id="signUp-email" class="form-control" placeholder="Usuario/Email" required>
+      </div>
+      <div class="formGroup">
+        <input type="password" id="signUp-password" class="form-control" placeholder="Contraseña" required>
+      </div>
+      <button type="submit" class="btnType">Crear cuenta</button>
+
+    </form>
+    <!--Iniciar Sesión-->
+    <form id="logIn-form" action="">
+      <div class="formGroup">
+        <input type="text" id="logIn-email" class="form-control" placeholder="Usuario/Email" required>
+      </div>
+      <div class="formGroup">
+        <input type="password" id="logIn-password" class="form-control" placeholder="Contraseña" required>
+      </div>
+      <button type="submit" class="btnType">Iniciar Sesión</button>
+      <button type="button" class="btnType" id="googleAccess">Inicia sesión con google</button>
+      <button type="button" class="btnType" id="facebookAccess">Inicia sesión con Facebook</button>
+    </form>
+  </section>
+  <aside>Aquí van los articulos</aside>
   <script type="module" src="main.js"></script>
+
+<!--FIREBASE-->
+
+<!-- The core Firebase JS SDK is always required and must be listed first -->
+<script src="https://www.gstatic.com/firebasejs/8.2.7/firebase-app.js"></script>
+
+<!-- TODO: Add SDKs for Firebase products that you want to use
+     https://firebase.google.com/docs/web/setup#available-libraries 
+    Queremos usar auth de Firebase
+    -->
+
+     <script src="https://www.gstatic.com/firebasejs/8.2.7/firebase-auth.js"></script>
+     <script src="https://www.gstatic.com/firebasejs/8.2.7/firebase-firestore.js"></script>
+
+     
+<script>
+  // Your web app's Firebase configuration
+  var firebaseConfig = {
+    apiKey: "AIzaSyCMoOe0AXVQgK3goG6Nd_gb68S7Rjak7w8",
+    authDomain: "i-care-4b791.firebaseapp.com",
+    projectId: "i-care-4b791",
+    storageBucket: "i-care-4b791.appspot.com",
+    messagingSenderId: "1028505964973",
+    appId: "1:1028505964973:web:643e593fefcb51781f9124"
+  };
+  // Initialize Firebase
+  firebase.initializeApp(firebaseConfig);
+  //Enviamos datos para validarlos 
+  const auth = firebase.auth();   
+  const fs = firebase.firestore();
+
+
+</script>
+
 </body>
 </html>

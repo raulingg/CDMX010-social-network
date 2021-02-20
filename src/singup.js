@@ -1,0 +1,1 @@
+export const singUp = () => `<h1>I am Sing Up</h1>`;
