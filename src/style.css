@@ -1,0 +1,176 @@
+@import url('https://fonts.googleapis.com/css2?family=Fredoka+One&family=Montserrat:wght@400;700&display=swap');
+/* font-family: 'Fredoka One', cursive;
+font-family: 'Montserrat', sans-serif; */
+
+html{
+    font-size: 12px;
+}
+ 
+body{
+    width: 100vw;
+    height: 100vh;
+    font-family: 'Montserrat', sans-serif;
+}
+h1,h2,h3,h4,h5,h6 {
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 700;
+    color: #703E79;
+    text-align: center;
+}
+p{
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 700;
+}
+h2{
+    font-size: 20px;  
+}
+h3{
+    font-size: 18px;
+}
+/* Welcome View */
+#welcomeView{
+    background-image: url("img/rs_welcomeback.jpg");
+    background-attachment: fixed;
+    background-size: cover;
+    width: 100%;
+    height: 100%;
+}
+#logo{
+    width: 80%;
+    display: block;
+    margin: 25px auto;
+}
+#login{
+    position: absolute;
+    width: 237px;
+    height: 42px;
+    left: 62px;
+    top: 502px;
+    background: #E9429C;
+    border-radius: 63px;
+    border-color: #E9429C;
+
+    font-family: 'Montserrat', sans-serif;
+    font-style: normal;
+    font-weight: bold;
+    font-size: 14px;
+    line-height: 17px;
+    color: #FFFFFF;
+}
+
+#signUp{
+    position: absolute;
+    width: 237px;
+    height: 42px;
+    left: 62px;
+    top: 562px;
+    background: #E9429C;
+    border-color: #E9429C;
+    border-radius: 63px;
+    font-family: 'Montserrat', sans-serif;
+    font-style: normal;
+    font-weight: bold;
+    font-size: 14px;
+    line-height: 17px;
+    color: #FFFFFF;
+}
+/*LogIn View*/
+#loginViewContainer{
+    max-width: 1200px;
+    height: auto;
+    box-sizing: border-box;
+    flex-basis: 100%;
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: center; 
+}
+.container{
+    background-image: url(img/rs_back.jpg);
+    background-attachment: fixed;
+    background-size: cover;
+}
+#loginEmail{
+    position: absolute;
+    width: 278px;
+    height: 37px;
+    left: 43px;
+    top: 180px;
+    background: #FFFAFD;
+    border: 2px solid #D797D3;
+    box-sizing: border-box;
+    font-family:  'Montserrat', sans-serif;
+}
+#loginPassword{
+    position: absolute;
+    width: 278px;
+    height: 37px;
+    left: 43px;
+    top: 239px;
+    background: #FFFBFD;
+    border: 2px solid #D797D3;
+    box-sizing: border-box;
+    font-family: 'Montserrat', sans-serif;
+}
+#enter{
+    position: absolute;
+    width: 281px;
+    height: 44px;
+    left: 40px;
+    top: 322px;
+    background: #E9429C;
+    border-color: #E9429C;
+    border-radius: 63px;
+    font-family: 'Montserrat', sans-serif;
+    font-style: normal;
+    font-weight: bold;
+    font-size: 14px;
+    line-height: 17px;
+    color: #FFFFFF;
+}
+#loginViewContainer h3{
+    position: absolute;
+    top: 400px;
+}
+#gmailIcon{
+    width: 20%;
+    position: absolute;
+    top: 10px;
+    left: 50px;
+}
+.btnGmail{
+    position: absolute;
+    width: 126px;
+    height: 44px;
+    left: 43px;
+    top: 476px;
+    background: #FFFFFF;
+    border: 2px solid #D797D3;
+    box-sizing: border-box;
+    border-radius: 63px;
+}
+#facebookIcon{
+    width:25%;
+    position: absolute;
+    top: 5px;
+    left: 50px;
+}
+.btnFacebook{
+    position: absolute;
+    width: 126px;
+    height: 44px;
+    left: 194px;
+    top: 476px;
+
+    background: #FFFFFF;
+    border: 2px solid #D797D3;
+    box-sizing: border-box;
+    border-radius: 63px;
+}
+#returnArrow{
+    position: absolute;
+    left: 80%;
+    right: 11.11%;
+    top: 92.5%;
+    bottom: 2.81%;
+    width: 10%;
+}
