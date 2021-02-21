@@ -124,10 +124,10 @@ export default ({ firebaseClient }) => {
 
   const render = (target) => {
     target.innerHTML = html();
-
+    const wallElement = document.getElementById('wall');
     document.getElementById('postBuilderForm').addEventListener('submit', onCreatePostHandler);
     document.getElementById('signOut').addEventListener('click', onSignOutHandler);
-    document.addEventListener('click', (e) => {
+    wallElement.addEventListener('click', (e) => {
       const { behavior } = e.target.dataset;
       if (behavior === 'onEditPost') {
         onEditPostHandler(e);
@@ -146,16 +146,16 @@ export default ({ firebaseClient }) => {
       }
     });
 
-    document.addEventListener('keyup', (e) => {
+    wallElement.addEventListener('input', (e) => {
       const { behavior } = e.target.dataset;
 
-      if (behavior === 'onEnableUpdateButton') {
-        if (e.key === 'Escape') {
-          showPosts();
-        } else {
-          onEnableUpdateButtonHandler(e);
-        }
-      }
+      if (behavior === 'onEnableUpdateButton') onEnableUpdateButtonHandler(e);
+    });
+
+    wallElement.addEventListener('keyup', (e) => {
+      const { behavior } = e.target.dataset;
+
+      if (behavior === 'onEnableUpdateButton' && e.key === 'Escape') showPosts();
     });
   };
 
