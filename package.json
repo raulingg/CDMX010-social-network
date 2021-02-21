@@ -11,15 +11,18 @@
   "license": "MIT",
   "scripts": {
     "htmlhint": "htmlhint dist/*.html ",
-    "eslint": "eslint --ext .js src/ test/",
+    "eslint": "eslint --ext .js src/",
     "stylelint": "stylelint --aei src/**/*.css",
     "pretest": "npm run htmlhint && npm run eslint && npm run stylelint",
-    "test": "jest --coverage",
+    "test": "jest --coverage --setupFilesAfterEnv=./jest.setup.js",
     "start": "serve -s src/"
   },
   "devDependencies": {
     "@babel/core": "^7.11.4",
     "@babel/preset-env": "^7.11.0",
+    "@testing-library/dom": "^7.29.4",
+    "@testing-library/jest-dom": "^5.11.9",
+    "@testing-library/user-event": "^12.7.1",
     "babel-jest": "^26.3.0",
     "eslint": "^7.7.0",
     "eslint-config-airbnb-base": "^14.2.0",

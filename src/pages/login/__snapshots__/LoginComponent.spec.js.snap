@@ -1,0 +1,16 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`LoginComponent should render 1`] = `
+"
+      <div>
+        <form>
+          <label for=\\"email\\">Email</label><br>
+          <input type\\"email\\"=\\"\\" id=\\"email\\" name=\\"email\\" value=\\"\\"><br>
+          <label for=\\"password\\">Password</label><br>
+          <input type\\"password\\"=\\"\\" name=\\"password\\" id=\\"password\\" value=\\"\\"><br>
+          <input type=\\"submit\\" value=\\"Sign In\\">
+        </form>
+        <p id=\\"errorMessage\\" data-testid=\\"errorMessage\\"></p>
+      </div>    
+    "
+`;
