@@ -1,5 +1,5 @@
- // For Firebase JavaScript SDK v7.20.0 and later, `measurementId` is an optional field
-const firebaseConfig = {
+ // aqui exportaras las funciones que necesites
+ const firebaseConfig = {
   apiKey: "AIzaSyCBbc4-QZcuS9hpij5G3SZUC3PS4yenuvQ",
   authDomain: "encounter-laboratoria2021.firebaseapp.com",
   projectId: "encounter-laboratoria2021",
@@ -12,9 +12,10 @@ const firebaseConfig = {
 // Initialize Firebase
 firebase.initializeApp(firebaseConfig);
 
-export function registrar (email, password) {
+export function registration(email, password) {
   firebase.auth().createUserWithEmailAndPassword(email, password)
-    .then((user) => {
+    .then(() => {
+      verify ()
       // Signed in
       // ...
     })
@@ -41,12 +42,15 @@ export function registrar (email, password) {
     });
   };
   
-  export function observador () {
+  export function observer () {
     firebase.auth().onAuthStateChanged(function(user) {
       if (user) {
         console.log("usuario activo");
         home(user);
-        // let emailVerify = user.emailVerify;
+        console.log(user);
+        let emailVerified = user.emailVerified;
+
+        console.log(user.emailVerified);
         // User is signed in.
         // let displayName = user.displayName;
         // let email = user.email;
@@ -58,22 +62,24 @@ export function registrar (email, password) {
       }
     });
   };
-  observador()
+  observer()
+
   
+    // Esta función debe ir en login.js (manipula DOM)
   function home (user) {
-  //  let user = user;
+   //let user = user;
    let contenido = document.getElementById("home");
-   if (user.emailVerify)
+   if (user.emailVerified){ 
    contenido.innerHTML = `
-   <p>Bienvenida</p>
+   <p>Inicio de sesión</p>
    <button>Cerrar sesión</button>
-   ` 
+   `
+   }; 
   };
   
-  function verificar () {
+  function verify () {
     let user = firebase.auth().currentUser;
-  
-  user.sendEmailVerification().then(function() {
+    user.sendEmailVerification().then(function() {
     // Email sent.
     console.log("enviando correo");
   }).catch(function(error) {
@@ -81,34 +87,45 @@ export function registrar (email, password) {
     console.log(error);
   });
   };
-  console.log(verificar);
-  // export function registrar (){
-  //       let email = document.getElementById("email").value;
-  //       let password = document.getElementById("password").value;
-  //       console.log(email);
-  //       console.log(password);
-  //   return
-  // };
   
-
-
-// firebase.auth().createUserWithEmailAndPassword(email, password)
-//   .then((user) => {
-//     // Signed in
-//     // ...
-//   })
-//   .catch((error) => {
-//     var errorCode = error.code;
-//     var errorMessage = error.message;
-//     // ..
-//   });
-
- 
-
-// aqui exportaras las funciones que necesites
 /*
 export const myFunction = () => {
   // aqui tu codigo
   console.log('Hola mundo!');
 };
+*/
+
+
+
+
+
+
+/*
+EXPERIMENTO 01
+
+export function createPost(post){
+  let {title, paragraph} = post;
+  let createPost =`
+      <div class="content">
+          <h5>${title}</h5>
+          <p>${paragraph}</p>
+          <button>Cerrar sesión</button>
+       `;
+   return createPost;
+  // if (user.emailVerified){ 
+  //    contenido.innerHTML = `
+  //    <p>Bienvenida</p>
+  //    <button>Cerrar sesión</button>
+  //     `
+  //     };}
+};
+
+function setPost(settingContent){
+  let postContainer = document.getElementById("home");
+  contenido.addEventListener("click", () =>{
+      if (user.emailVerified){  
+          let emptyContent = '';
+          settingContent.
+      }
+}
 */
