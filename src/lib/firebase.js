@@ -42,40 +42,20 @@ export function registration(email, password) {
     });
   };
   
-  export function observer () {
-    firebase.auth().onAuthStateChanged(function(user) {
-      if (user) {
-        console.log("usuario activo");
-        home(user);
-        console.log(user);
-        let emailVerified = user.emailVerified;
-
-        console.log(user.emailVerified);
-        // User is signed in.
-        // let displayName = user.displayName;
-        // let email = user.email;
-        // console.log(displayName);
-        // console.log(email);
-      } else {
-        console.log("no existe usuario activo");
-        // No user is signed in.
-      }
-    });
-  };
-  observer()
+  
 
   
     // Esta función debe ir en login.js (manipula DOM)
-  function home (user) {
-   //let user = user;
-   let contenido = document.getElementById("home");
-   if (user.emailVerified){ 
-   contenido.innerHTML = `
-   <p>Inicio de sesión</p>
-   <button>Cerrar sesión</button>
-   `
-   }; 
-  };
+  // function home (user) {
+  //  //let user = user;
+  //  let contenido = document.getElementById("home");
+  //  if (user.emailVerified){ 
+  //  contenido.innerHTML = `
+  //  <p>Inicio de sesión</p>
+  //  <button>Cerrar sesión</button>
+  //  `
+  //  }; 
+  // };
   
   function verify () {
     let user = firebase.auth().currentUser;
