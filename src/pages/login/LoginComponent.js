@@ -20,7 +20,6 @@ export default ({ signIn }) => {
     const password = document.getElementById('password').value;
     e.target.value = 'Submitting ...';
     signIn(email, password).catch((error) => {
-      console.log(error.message);
       document.getElementById('errorMessage').innerHTML = error.message;
       e.target.value = 'Sign In';
     });
