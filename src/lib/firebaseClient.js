@@ -29,9 +29,9 @@ export default (firebase) => {
     };
   };
 
-  const create = ({ message, user, createdAt }) => firebase.firestore()
+  const create = ({ message, user }) => firebase.firestore()
     .collection('posts')
-    .add({ message, user, createdAt })
+    .add({ message, user, createdAt: new Date() })
     .then((docRef) => docRef.id)
     .catch((error) => console.error('Error adding document: ', error));
 

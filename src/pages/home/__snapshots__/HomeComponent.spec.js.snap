@@ -1,0 +1,107 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`HomeComponent editablePost should show an editable post focused and hide post when user clicks over a post 1`] = `
+<form
+  data-id="newuid"
+>
+  
+    
+  <textarea
+    autofocus=""
+    cols="50"
+    data-behavior="onEnableUpdateButton"
+    name="message"
+    rows="4"
+  >
+    new post
+  </textarea>
+  
+    
+  <button
+    data-behavior="onUpdatePost"
+    disabled=""
+  >
+    Edit
+  </button>
+  
+    
+  <button
+    data-behavior="onCancel"
+  >
+    Cancel
+  </button>
+  
+  
+</form>
+`;
+
+exports[`HomeComponent should render 1`] = `
+"
+    <h1>Home</h1>
+    
+  <ul>
+      <li><a href=\\"#\\" id=\\"home\\">Home</a></li>
+      <li><a href=\\"#\\" id=\\"signOut\\">Logout</a></li>
+  </ul>
+
+    
+  <form id=\\"postBuilderForm\\" data-testid=\\"postBuilderForm\\">
+    <textarea name=\\"postBuilderInput\\" rows=\\"4\\" cols=\\"50\\" autofocus=\\"\\" data-testid=\\"postBuilderInput\\"></textarea>
+    <input type=\\"submit\\" value=\\"Post\\" data-testid=\\"postBuilderButton\\">
+  </form>
+  <p id=\\"feedbackMessage\\" data-testid=\\"feedbackMessage\\" hidden=\\"\\">Message sent successfully!</p>
+
+    <div id=\\"wall\\" data-testid=\\"wall\\">
+      <p>Fetching posts...</p>
+    </div>
+    <div id=\\"observer\\"></div>
+  "
+`;
+
+exports[`HomeComponent should show a list of posts 1`] = `
+"
+    <h1>Home</h1>
+    
+  <ul>
+      <li><a href=\\"#\\" id=\\"home\\">Home</a></li>
+      <li><a href=\\"#\\" id=\\"signOut\\">Logout</a></li>
+  </ul>
+
+    
+  <form id=\\"postBuilderForm\\" data-testid=\\"postBuilderForm\\">
+    <textarea name=\\"postBuilderInput\\" rows=\\"4\\" cols=\\"50\\" autofocus=\\"\\" data-testid=\\"postBuilderInput\\"></textarea>
+    <input type=\\"submit\\" value=\\"Post\\" data-testid=\\"postBuilderButton\\">
+  </form>
+  <p id=\\"feedbackMessage\\" data-testid=\\"feedbackMessage\\" hidden=\\"\\">Message sent successfully!</p>
+
+    <div id=\\"wall\\" data-testid=\\"wall\\">
+<article class=\\"post\\" data-id=\\"undefined\\">
+  <p data-behavior=\\"onEditPost\\" style=\\"white-space: pre-wrap\\">Post 1</p>
+  <p>test@example.com</p>
+  <p>2021-02-21T20:50:22.438Z</p>
+  <button data-behavior=\\"onRemovePost\\">X</button>
+  <br>
+  <br>
+</article>
+
+<article class=\\"post\\" data-id=\\"undefined\\">
+  <p data-behavior=\\"onEditPost\\" style=\\"white-space: pre-wrap\\">Post 2</p>
+  <p>test@example.com</p>
+  <p>2021-02-21T20:50:22.438Z</p>
+  <button data-behavior=\\"onRemovePost\\">X</button>
+  <br>
+  <br>
+</article>
+
+<article class=\\"post\\" data-id=\\"undefined\\">
+  <p data-behavior=\\"onEditPost\\" style=\\"white-space: pre-wrap\\">Post 3</p>
+  <p>test@example.com</p>
+  <p>2021-02-21T20:50:22.438Z</p>
+  <button data-behavior=\\"onRemovePost\\">X</button>
+  <br>
+  <br>
+</article>
+</div>
+    <div id=\\"observer\\"></div>
+  "
+`;

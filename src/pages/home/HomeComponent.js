@@ -5,15 +5,15 @@ import Post from './components/Post.js';
 import NavBar from './components/NavBar.js';
 import EditablePost from './components/EditablePost.js';
 
-export default ({ firebaseClient }) => {
+export default ({ firebaseClient, user }) => {
   const state = { posts: [], lastVisible: null, hasMore: true };
   let observer = null;
 
   const html = () => `
     <h1>Home</h1>
-    ${NavBar()}
+    ${NavBar({ user })}
     ${PostBuilder()}
-    <div id="wall">
+    <div id="wall" data-testid="wall">
       <p>Fetching posts...</p>
     </div>
     <div id="observer"></div>
@@ -59,17 +59,16 @@ export default ({ firebaseClient }) => {
 
   const onCreatePostHandler = async (e) => {
     e.preventDefault();
-    const { value: message } = e.target.message;
+    const { value: message } = document.querySelector('[name=postBuilderInput]');
     const feedbackElement = document.getElementById('feedbackMessage');
 
     // validate message
     if (message) {
-      const user = firebaseClient.auth.getUser();
-      const post = { message, user: user.email, createdAt: new Date() };
+      const post = { message, user: user.email };
       const postId = await firebaseClient.post.create(post);
       feedbackElement.hidden = false;
       feedbackElement.style.color = 'green';
-      setData({ posts: [{ id: postId, ...post }, ...state.posts] });
+      setData({ posts: [{ id: postId, ...post, createdAt: new Date() }, ...state.posts] });
       showPosts();
       setTimeout(() => {
         feedbackElement.hidden = true;
@@ -107,7 +106,6 @@ export default ({ firebaseClient }) => {
   };
 
   const onEditPostHandler = (e) => {
-    e.target.hidden = true;
     const { parentElement } = e.target;
     const selectedPost = findPostById(parentElement.dataset.id);
     parentElement.innerHTML = EditablePost(selectedPost);
