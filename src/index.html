@@ -1,18 +1,39 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+<head> 
+  <link href="style.css"  rel="stylesheet" type="text/css"/>
+  <link rel="preconnect" href="https://fonts.gstatic.com">
+  <link href="https://fonts.googleapis.com/css2?family=Amatic+SC&display=swap" rel="stylesheet">
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <script src="https://kit.fontawesome.com/eb71235840.js" crossorigin="anonymous"></script>
   <title>Document</title>
 </head>
 <body>
-  <form id="post-form">
-    <input type="text" id="post-title" placeholder="Post Title" autofocus>
-    <textarea id="post-description" cols="30" rows="4"></textarea>
-    <button id="save">Guardar</button>
-  </form>
+  <header class="header">
+    <img class="logo" src="Images/logo.png" alt="logo">
+  </header>
   <div id="post-container"></div>
+  <div id="post-form">
+    <form id="form">
+      <p>Esribe tu post</p>
+      <input id="title" type="text" placeholder="Título">
+      <input id="location" type="text" placeholder="Coordenadas">
+      <textarea id="description" type="text" placeholder="Descripción"></textarea>
+      <button id="save">Publicar</button>
+  </div>
+    
+
+
+  <div id="post-container"></div>
+  <footer>
+    <span><i class="fas fa-arrow-alt-circle-left"></i></span>
+    <span><i class="fas fa-plus-circle"></i></i></span>
+    <span><i class="fas fa-user-circle"></i></i></span>
+  </footer>
+
   <!-- The core Firebase JS SDK is always required and must be listed first -->
 <script src="https://www.gstatic.com/firebasejs/8.2.7/firebase-app.js"></script>
 
