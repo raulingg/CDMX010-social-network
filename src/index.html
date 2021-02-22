@@ -7,9 +7,37 @@
   <title>Document</title>
 </head>
 <body>
-  <p>Rama An integrada</p>
-  <p>Clone Ilse ok</p>
-  <p>clone Gema, probando</p>
+  <form id="post-form">
+    <input type="text" id="post-title" placeholder="Post Title" autofocus>
+    <textarea id="post-description" cols="30" rows="4"></textarea>
+    <button id="save">Guardar</button>
+  </form>
+  <div id="post-container"></div>
+  <!-- The core Firebase JS SDK is always required and must be listed first -->
+<script src="https://www.gstatic.com/firebasejs/8.2.7/firebase-app.js"></script>
+
+<!-- TODO: Add SDKs for Firebase products that you want to use
+     https://firebase.google.com/docs/web/setup#available-libraries -->
+
+     <script src="https://www.gstatic.com/firebasejs/8.2.4/firebase-firestore.js"></script>
+<script src="https://www.gstatic.com/firebasejs/8.2.7/firebase-analytics.js"></script>
+
+<script>
+  // Your web app's Firebase configuration
+  // For Firebase JS SDK v7.20.0 and later, measurementId is optional
+  var firebaseConfig = {
+    apiKey: "AIzaSyAfw4xz2PjGD2eXmt6ObeiHMJFyeWAPAxo",
+    authDomain: "red-social-6d454.firebaseapp.com",
+    projectId: "red-social-6d454",
+    storageBucket: "red-social-6d454.appspot.com",
+    messagingSenderId: "850467784868",
+    appId: "1:850467784868:web:4c3852e2c8d87d26a0be31",
+    measurementId: "G-YDWYMYLJ5L"
+  };
+  // Initialize Firebase
+  firebase.initializeApp(firebaseConfig);
+  firebase.analytics();
+</script>
   <script type="module" src="main.js"></script>
 </body>
 </html>
