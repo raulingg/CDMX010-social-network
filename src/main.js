@@ -6,20 +6,23 @@
 // llamar a Firestore
 const dataBase = firebase.firestore();
 // llama al formulario y escucha el evento
-const postForm = document.getElementById('post-form');
+const postForm = document.getElementById('form');
 const postContainer = document.getElementById('post-container');
+const postList = document.getElementById('post-list');
 // guardar status
 let editStatus = false;
 let id = '';
-const savePost = (title, description) =>
+const savePost = (title, location, description) =>
   dataBase.collection('post').doc().set({
     title,
+    location,
     description,
   });
   // obtiene valores guardados
 const getPost = () => dataBase.collection('post').get();
 // de la colección quiero un documento con el id que se obtiene al dar click
 const getPostInfo = (id) => dataBase.collection('post').doc(id).get();
+
   const onGetPost = (callback) => dataBase.collection('post').onSnapshot(callback);
   // para eliminar un post da un parametro id
   const deletePost = id => dataBase.collection('post').doc(id).delete();
@@ -31,6 +34,7 @@ const getPostInfo = (id) => dataBase.collection('post').doc(id).get();
   window.addEventListener('DOMContentLoaded', async (e) => {
       onGetPost((querySnapshot) => {
         postContainer.innerHTML = '';
+        postList.innerHTML = '';
         querySnapshot.forEach((doc) => {
         // contante para llamar la data del post
         const post = doc.data();
@@ -38,12 +42,19 @@ const getPostInfo = (id) => dataBase.collection('post').doc(id).get();
         post.id = doc.id;
         // console.log(post);
         postContainer.innerHTML += `
-        <div>
-            <h2>${post.title}</h2>
-            <p>${post.description}</p>
-            <button class="btn-delete" data-id="${post.id}">Borrar</button>
-            <button class="btn-edit" data-id="${post.id}">Editar</button>
+        <div id="mainPost">
+            <h2 class="title">${post.title}</h2>
+            <p class="plocation">${post.location}</p>
+            <p class="pdescription">${post.description}</p>
+            <div id="icons">
+              <i class="far fa-trash-alt btn-delete" data-id="${post.id}"></i>
+              <span><i class="fas fa-heart"></i></span>
+              <i class="fas fa-pencil-alt btn-edit" data-id="${post.id}"></i>
+            </div>  
         </div>
+        `;
+        postList.innerHTML += `
+        <h2 class="title-list">${post.title}</h2>
         `;
         // Botón de borrar, escucha evento y recupera la data del id
         const btnsDelete = document.querySelectorAll('.btn-delete');
@@ -63,6 +74,7 @@ const getPostInfo = (id) => dataBase.collection('post').doc(id).get();
                 editStatus = true;
                 id = doc.id;
                 postForm['post-title'].value = postEditing.title;
+                postForm['post-location'].value = postEditing.location;
                 postForm['post-description'].value = postEditing.description;
                 postForm['save'].innerText = 'Actualizar';
             });
@@ -73,12 +85,14 @@ const getPostInfo = (id) => dataBase.collection('post').doc(id).get();
 postForm.addEventListener('submit', async (e) => {
   e.preventDefault();
   const title = postForm['post-title'];
+  const location = postForm['post-location'];
   const description = postForm['post-description'];
   if (!editStatus) {
-    await savePost(title.value, description.value);
+    await savePost(title.value, location.value, description.value);
   } else {
       await updatePost(id, {
           title: title.value,
+          location: location.value,
           description: description.value,
       });
       editStatus = false;
@@ -89,5 +103,5 @@ postForm.addEventListener('submit', async (e) => {
   // limpia o resetea el formulario
   postForm.reset();
   title.focus();
-  console.log(title, description);
+  console.log(title,location, description);
 });
