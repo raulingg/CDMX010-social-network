@@ -5,7 +5,7 @@ font-family: 'Montserrat', sans-serif; */
 html{
     font-size: 12px;
 }
- 
+
 body{
     width: 100vw;
     height: 100vh;
@@ -26,14 +26,15 @@ h2{
 }
 h3{
     font-size: 18px;
+    text-align: center;
 }
 /* Welcome View */
 #welcomeView{
     background-image: url("img/rs_welcomeback.jpg");
     background-attachment: fixed;
     background-size: cover;
-    width: 100%;
-    height: 100%;
+    width: 100vw;
+    height: 100vh;
 }
 #logo{
     width: 80%;
@@ -49,7 +50,6 @@ h3{
     background: #E9429C;
     border-radius: 63px;
     border-color: #E9429C;
-
     font-family: 'Montserrat', sans-serif;
     font-style: normal;
     font-weight: bold;
@@ -75,19 +75,26 @@ h3{
     color: #FFFFFF;
 }
 /*LogIn View*/
-#loginViewContainer{
-    max-width: 1200px;
+/* #loginViewContainer{
+    /* max-width: 1200px;
     height: auto;
     box-sizing: border-box;
     flex-basis: 100%;
     display: flex;
     flex-flow: row wrap;
-    justify-content: center; 
-}
+    justify-content: center;  */
+    /* background-image: url(img/rs_back.jpg);
+    background-attachment: fixed;
+    background-size: cover;
+    width: 100vw;
+    height: 100vh; 
+} */
 .container{
     background-image: url(img/rs_back.jpg);
     background-attachment: fixed;
     background-size: cover;
+    width: 100vw;
+    height: 100vh;
 }
 #loginEmail{
     position: absolute;
@@ -130,6 +137,12 @@ h3{
 #loginViewContainer h3{
     position: absolute;
     top: 400px;
+    text-align: center;
+}
+#signUpViewContainer h3{
+    position: absolute;
+    top: 420px;
+    text-align: center;
 }
 #gmailIcon{
     width: 20%;
@@ -173,4 +186,31 @@ h3{
     top: 92.5%;
     bottom: 2.81%;
     width: 10%;
+}
+#loginPasswordAgain{
+    position: absolute;
+    width: 278px;
+    height: 37px;
+    left: 43px;
+    top: 299px; 
+    background: #FFFBFD;
+    border: 2px solid #D797D3;
+    box-sizing: border-box;
+    font-family: 'Montserrat', sans-serif;
+}
+#btnSignUp{
+    position: absolute;
+    width: 281px;
+    height: 44px;
+    left: 40px;
+    top: 382px;
+    background: #E9429C;
+    border-color: #E9429C;
+    border-radius: 63px;
+    font-family: 'Montserrat', sans-serif;
+    font-style: normal;
+    font-weight: bold;
+    font-size: 14px;
+    line-height: 17px;
+    color: #FFFFFF;
 }
