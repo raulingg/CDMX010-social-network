@@ -1,0 +1,100 @@
+*{
+    margin: 0;
+    padding: 0;
+}
+
+body{
+    width: 100%;
+    min-height: 100vh;
+}
+
+.header{
+    width:100%;
+    background-color:#4C4747;
+    height: 70px;
+    text-align: center;
+}
+
+.logo{
+    height: 50px;
+    width: auto;
+    margin-top:10px;
+}
+#post-form{
+    width: 100%;
+    height: 100vh;
+    background: url('/src/Images/corazon.jpg') no-repeat center;
+    background-size: cover;
+    position: fixed;
+    
+}
+#form{
+    width: 90%;
+    height: 423px;
+    margin-left: 5%;
+    top: 135px;
+    background: rgba(255, 255, 255, 0.81);
+    border-radius: 26px;
+
+}
+
+p{
+    font-family: 'Amatic SC', cursive;
+    font-size: 72px;
+    line-height: 91px;
+    color: #EE40A9;
+}
+
+#title{
+    width: 273px;
+    height: 48px;
+    background: #FFFFFF;
+    border-radius: 20px;
+    padding-left: 20px;
+
+}
+
+#location{
+    width: 273px;
+    height: 48px;
+    background: #FFFFFF;
+    border-radius: 20px; 
+    padding-left: 20px
+}
+
+#description{
+    width: 273px;
+    height: 137px;
+    background: #FFFFFF;
+    border-radius: 20px;
+    padding-left: 20px
+}
+
+::placeholder{
+    font-family: 'Amatic SC', cursive;
+    margin-left: 15px;
+}
+
+#save{
+    width: 111px;
+    height: 35px;
+    background: #ED47D2;
+    border-radius: 20px;
+    font-family: 'Amatic SC', cursive;
+    font-size: 24px;
+    line-height: 30px;
+    color: #FFFFFF;
+    justify-content:center;
+}
+
+footer{
+    position: absolute;
+    width: 100%;
+    height: 50px;
+    background: #4C4747;
+    bottom: 0;
+}
+i{
+    color: white;
+    color: #FFFFFF;
+}
