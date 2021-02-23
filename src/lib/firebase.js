@@ -1,5 +1,5 @@
  // aqui exportaras las funciones que necesites
- const firebaseConfig = {
+const firebaseConfig = {
   apiKey: "AIzaSyCBbc4-QZcuS9hpij5G3SZUC3PS4yenuvQ",
   authDomain: "encounter-laboratoria2021.firebaseapp.com",
   projectId: "encounter-laboratoria2021",

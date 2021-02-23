@@ -1,15 +1,13 @@
-import { loginTemplate} from "./lib/views/login.js";
-import {registerTemplate } from "./lib/views/register.js";
+// import { loginTemplate} from "./lib/views/login.js";
+// import {registerTemplate } from "./lib/views/register.js";
 import {onNavigate, routes} from './router.js'
-
-// import {signIn} from "./lib/firebase.js";
+import { registration, signIn } from "./lib/firebase.js" 
 // import {render} from "./router.js"
 // Este es el punto de entrada de tu aplicacion
-// import {registration, signIn} from "./lib/firebase.js" 
 
-const rootDiv= document.getElementById("root");
-loginTemplate(rootDiv)
-registerTemplate()
+const rootDiv = document.getElementById("root");
+// loginTemplate(rootDiv)
+// registerTemplate()
 
 
 // document.getElementById('root').innerHTML = loginTemplate;
@@ -23,7 +21,7 @@ document.addEventListener('DOMContentLoaded', () => {
           let emailVerified = user.emailVerified;
   
           console.log(user.emailVerified);
-          onNavigate('/home')
+          onNavigate('/contact')
           // User is signed in.
           // let displayName = user.displayName;
           // let email = user.email;

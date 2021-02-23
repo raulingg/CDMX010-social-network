@@ -2,13 +2,19 @@ import {loginTemplate} from "./lib/views/login.js";
 import {registerTemplate} from "./lib/views/register.js";
 import {homeTemplate} from "./lib/views/home.js";
 
+const contact = (target) => {
+    const html = `<h1>contacto</h1>`
+    target.innerHTML = html
+}
+
 export const routes = {
-    "/":loginTemplate,
+    "/": loginTemplate,
     "/register": registerTemplate,  
-    "/home" : homeTemplate,    
+    "/home" : homeTemplate,
+    "/contact": contact,  
 };
 
-// const rootDiv = document.getElementById("root");
+const rootDiv = document.getElementById("root");
 // rootDiv.innerHTML= routes [window.location.pathname];
 
 

@@ -1,3 +1,5 @@
+import { onNavigate } from '../../router.js'
+
 export const loginTemplate = (target) => {
     const html = `
         <div class="cabecera">
@@ -13,7 +15,7 @@ export const loginTemplate = (target) => {
             <button id="access">LOGIN</button> 
           </div>
           <div class="not-password-yet">
-            <div id="newAccount">+</div>
+            <div id="newAccount"><a href="#" id="newAccountLink">+</a></div>
             <p>Not password yet?</p>
             <div id="recoverPassword">+</div>
             <p>Forgot your credential?</p>
@@ -23,6 +25,12 @@ export const loginTemplate = (target) => {
 
         target.innerHTML = html
         const access = document.getElementById("access");
+
+        document.getElementById('newAccountLink').addEventListener('click', (e) => {
+          e.preventDefault();
+          onNavigate('/contact')
+        })
+        
         access.addEventListener("click", () => { 
             let emailSignIn = document.getElementById("emailSignIn").value;
             let passwordSignIn = document.getElementById("passwordSignIn").value;
