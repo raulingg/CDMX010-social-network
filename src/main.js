@@ -6,8 +6,15 @@
 import { routes, onNavigate } from "./routes.js";
 
 let rootDiv = null;
-function agregarEvento() {
+function btnLogin() {
   document.querySelector("#login").addEventListener("click", () => {
+    const navigate = onNavigate("/logIn");
+    rootDiv.innerHTML = navigate;
+  });
+}
+
+function btnSignUp() {
+  document.querySelector("#signUp").addEventListener("click", () => {
     const navigate = onNavigate("/signUp");
     rootDiv.innerHTML = navigate;
   });
@@ -16,11 +23,13 @@ function agregarEvento() {
 window.addEventListener("DOMContentLoaded", () => {
   rootDiv = document.getElementById("root");
   rootDiv.innerHTML = routes[window.location.pathname];
-  agregarEvento();
+  btnLogin();
+  btnSignUp();
   // eventodeboton
 });
 
 window.onpopstate = () => {
   rootDiv.innerHTML = routes[window.location.pathname];
-  agregarEvento();
+  btnLogin();
+  btnSignUp();
 };
