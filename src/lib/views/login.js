@@ -1,5 +1,3 @@
-
-
 export const loginTemplate = (target) => {
     const html = `
         <div class="cabecera">
@@ -31,7 +29,7 @@ export const loginTemplate = (target) => {
             signIn (emailSignIn, passwordSignIn);
                 console.log("este usuario si pudo ingresar");
 });
-
+return target;
 }
 
     

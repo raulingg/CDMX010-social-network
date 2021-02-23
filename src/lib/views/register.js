@@ -1,6 +1,5 @@
-export const registerTemplate = () =>{
-     
-`
+export const registerTemplate = (target) =>{
+    const contentRegister =`
     <div class="cabecera">
     <div class="top">
       <div class="layer">
@@ -21,6 +20,13 @@ export const registerTemplate = () =>{
       </div>
     </div>
     `;
-    return registerTemplate;
+    target.innerHTML = contentRegister;
+    const register = document.getElementById("register");
+    register.addEventListener("click", () => { 
+        let email = document.getElementById("email").value;
+        let password = document.getElementById("password").value;
+        registration(email, password);
+});
+return target;
 };
 

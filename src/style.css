@@ -1,52 +1,54 @@
-*{
+* {
     /* box-sizing: border-box; */
     margin: 0;
-}
-/* This applies from 0px to 600px */
-body {
+  }
+  /* LOGIN / This applies from 0px to 600px */
+  body {
     background: white;
-}
-.cabecera {
+  }
+  .cabecera {
     display: flex;
     flex-direction: column;
     justify-content: center;
-    /* align-items: flex-start; */
-}
-.top {
+  }
+  .top {
     width: 100%;
-    height: 55vh;
+    height: 50vh;
     background: url("img/women/04-janis.jpg") no-repeat 40% top;
     background-position: center;
-    /* background: url(“img/women/03-janis.jpg”) no-repeat 40% top;   */
-}
-.layer {
+  }
+  .layer {
     width: 100%;
-    height: 55vh;
-    background: linear-gradient(90deg, rgba(171,39,138,1) 35%, rgba(178,196,245,1) 100%) no-repeat;
+    height: 50vh;
+    background: linear-gradient(
+        90deg,
+        rgba(171, 39, 138, 1) 35%,
+        rgba(178, 196, 245, 1) 100%
+      )
+      no-repeat;
     opacity: 76%;
-}
-.layer img {
+  }
+  .layer img {
     width: 200px;
-}
-.login {
+  }
+  .login {
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    line-height : 30px;
-}
-.input {
+  }
+  .input {
     border: 0em;
     font-family: "Oxygen", sans-serif;
     line-height: 30px;
     letter-spacing: 2px;
-    font-size: 1em;
-}
-#register {
+    font-size: .8em;
+  }
+  #register {
     font-size: 1em;
     letter-spacing: 2px;
-}
-button {
+  }
+  button {
     width: 200px;
     height: 35px;
     margin-top: 1em;
@@ -54,8 +56,15 @@ button {
     background: black;
     color: white;
     border: 0em;
-}
-.bottom {
+  }
+  button:hover {
+    background: linear-gradient(
+        90deg,
+        rgba(171, 39, 138, 1) 35%,
+        rgba(178, 196, 245, 1) 100%
+      )
+  }
+  .bottom {
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -63,55 +72,130 @@ button {
     margin-top: 2.5em;
     font-family: "Oxygen", sans-serif;
     /* font-family: ‘Ubuntu’, sans-serif; */
-    line-height : 30px;
-}
-#register {
+    line-height: 30px;
+  }
+  #register {
     font-weight: 700;
-}
-.not-password-yet {
-    font-size: .7em;
+  }
+  .not-password-yet {
+    font-size: 0.7em;
     margin-bottom: 50px;
-}
-/* This applies from 600px onwards */
-@media (min-width: 600px) {
-    *{
-        margin: 0;
+  }
+  /* LOGIN / This applies from 600px onwards */
+  @media (min-width: 600px) {
+    * {
+      margin: 0;
     }
     body {
-        height: 100%;
+      height: 100%;
     }
     .cabecera {
-        display: flex;
-        flex-direction: row;
-        /* float: left;
-        width: 50%; */
-        height: 100vh;
-        /*
-        float: left;
-        width: 50%;*/
+      display: flex;
+      flex-direction: row;
+      /* float: left;
+          width: 50%; */
+      height: 100vh;
     }
     .top {
-        width: 50%;
-        height: 100vh;
-        background: url("img/women/02-janis.jpg") no-repeat 50% top;
+      width: 50%;
+      height: 100vh;
+      background: url("img/women/02-janis.jpg") no-repeat 50% top;
+    }
+    button:hover {
+      background: linear-gradient(
+          90deg,
+          rgba(171, 39, 138, 1) 35%,
+          rgba(178, 196, 245, 1) 100%
+        )
     }
     .bottom {
-        width: 50%;
-        height: 100vh;
+      width: 50%;
+      height: 100vh;
     }
     .layer {
-        float: left;
-        height: 100vh;
-        background: linear-gradient(90deg, rgba(171,39,138,1) 35%, rgba(178,196,245,1) 100%);
-        opacity: 76%;
+      height: 100vh;
+      background: linear-gradient(
+        90deg,
+        rgba(171, 39, 138, 1) 35%,
+        rgba(178, 196, 245, 1) 100%
+      );
+      opacity: 76%;
     }
     .layer img {
-        width: 200px;
+      width: 200px;
     }
-    .login {
-        display: flex;
-        flex-direction: column;
-        justify-content: center;
-        align-items: center;
+  }
+  /* SUBMIT / This applies from 0 to 600px */
+  .bottom-register {
+    width: 100%;
+    /* height: 100vh;  */
+    display: flex;
+    flex-direction:row;
+    justify-content: center;
+    align-items: center;
+  }
+  .submit {
+    margin-top: 2.5em;
+    display: flex;
+    flex-direction:column;
+    justify-content: center;
+    align-items: center;
+    line-height: 30px;
+    margin-bottom: 30px;
+  }
+  .input {
+    border: 0em;
+    font-family: "Oxygen", sans-serif;
+    line-height: 30px;
+    letter-spacing: 2px;
+    font-size: .8em;
+  }
+  .submit p {
+    font-size: 0.7em;
+    margin-bottom: 50px;
+  }
+  button:hover {
+    background: linear-gradient(
+        90deg,
+        rgba(171, 39, 138, 1) 35%,
+        rgba(178, 196, 245, 1) 100%
+      )
+  }
+  /* SUBMIT / This applies from 600px onwards */
+  @media (min-width: 600px) {
+    .bottom-register {
+      width: 50%;
+      height: 100vh;
+      display: flex;
+      flex-direction:column;
+      justify-content: center;
+      align-items: center;
     }
-}
+    .submit {
+      margin-top: 2.5em;
+      display: flex;
+      flex-direction:column;
+      justify-content: center;
+      align-items: center;
+      line-height: 30px;
+      margin-bottom: 30px;
+    }
+    .submit p {
+      font-size: 0.7em;
+      margin-bottom: 50px;
+    }
+    .input {
+      border: 0em;
+      font-family: "Oxygen", sans-serif;
+      line-height: 30px;
+      letter-spacing: 2px;
+      font-size: .8em;
+    }
+    button:hover {
+      background: linear-gradient(
+          90deg,
+          rgba(171, 39, 138, 1) 35%,
+          rgba(178, 196, 245, 1) 100%
+        )
+    }
+  }

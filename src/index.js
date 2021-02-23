@@ -8,6 +8,7 @@ import {onNavigate, routes} from './router.js'
 // import {registration, signIn} from "./lib/firebase.js" 
 
 const rootDiv= document.getElementById("root");
+loginTemplate(rootDiv)
 registerTemplate()
 
 
@@ -46,12 +47,7 @@ document.addEventListener('DOMContentLoaded', () => {
 // const registro = document.getElementById("NewAccount");
 // render(registro, registerTemplate);
 
-// const register = document.getElementById("register");
-// register.addEventListener("click", () => { 
-//     let email = document.getElementById("email").value;
-//     let password = document.getElementById("password").value;
-//     registration(email, password);
-// });
+
 
 
 
