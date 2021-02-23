@@ -1,14 +1,45 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+  <link href="style.css"  rel="stylesheet" type="text/css"/>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
   <title>Document</title>
 </head>
 <body>
-  <p>Rama An integrada</p>
-  <p>Clone Ilse ok</p>
-  <script type="module" src="main.js"></script>
+  <form id="post-form">
+    <input type="text" id="post-title" placeholder="Post Title" autofocus>
+    <textarea id="post-description" class="post-box" cols="30" rows="4"></textarea>
+      <input type="text">
+      <textarea type="text"></textarea>
+    <button id="save">Guardar</button>
+  </form>
+
+<div id="post-container"></div>
+<!-- The core Firebase JS SDK is always required and must be listed first -->
+<script src="https://www.gstatic.com/firebasejs/8.2.7/firebase-app.js"></script>
+<script src="https://www.gstatic.com/firebasejs/8.2.7/firebase-firestore.js"></script>
+
+<!-- TODO: Add SDKs for Firebase products that you want to use
+     https://firebase.google.com/docs/web/setup#available-libraries -->
+
+<script>
+  // Your web app's Firebase configuration
+  var firebaseConfig = {
+    apiKey: "AIzaSyBA56_zwOGYIyO0TkTJYSZ42hxzQjQowKM",
+    authDomain: "redsocial-b82f3.firebaseapp.com",
+    databaseURL: "https://redsocial-b82f3-default-rtdb.firebaseio.com",
+    projectId: "redsocial-b82f3",
+    storageBucket: "redsocial-b82f3.appspot.com",
+    messagingSenderId: "217764169487",
+    appId: "1:217764169487:web:7e229a11fcea9cbc0b607a"
+  };
+  // Initialize Firebase
+  firebase.initializeApp(firebaseConfig);
+</script>
+​
+<script type="module" src="main.js"></script>
 </body>
+
 </html>

@@ -1,0 +1,18 @@
+*{
+    margin: 0;
+    background-color: aqua;
+  }
+
+.post-box{
+    position: absolute;
+    width: 302px;
+    height: 306px;
+    left: 30px;
+    top: 126px;
+    background: #EA5C5C;
+    
+}
+
+body{
+  font-size: 100px;
+}
