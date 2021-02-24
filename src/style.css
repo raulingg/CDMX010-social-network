@@ -22,11 +22,11 @@ p{
     font-weight: 700;
 }
 h2{
-    font-size: 20px;  
+    font-size: 20px; 
 }
 h3{
     font-size: 18px;
-    text-align: center;
+    left: 70px;
 }
 /* Welcome View */
 #welcomeView{
@@ -96,7 +96,7 @@ h3{
     width: 100vw;
     height: 100vh;
 }
-#loginEmail{
+#loginEmail, #signupEmail{
     position: absolute;
     width: 278px;
     height: 37px;
@@ -107,12 +107,23 @@ h3{
     box-sizing: border-box;
     font-family:  'Montserrat', sans-serif;
 }
-#loginPassword{
+#loginPassword,  #signupPassword{
     position: absolute;
     width: 278px;
     height: 37px;
     left: 43px;
     top: 239px;
+    background: #FFFBFD;
+    border: 2px solid #D797D3;
+    box-sizing: border-box;
+    font-family: 'Montserrat', sans-serif;
+}
+#signupPasswordAgain{
+    position: absolute;
+    width: 278px;
+    height: 37px;
+    left: 43px;
+    top: 300px;
     background: #FFFBFD;
     border: 2px solid #D797D3;
     box-sizing: border-box;
