@@ -1,1 +1,1 @@
-export const singUp = () => `<h1>I am Sing Up</h1>`;
+export const singUp =`<h3>Crear cuenta</h3>`;

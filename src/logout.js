@@ -1,1 +1,1 @@
-export const logOut = () => `<h1>I am Log Out</h1>`;
+export const logOut = `<h3>Cerró sesión</h3>`;

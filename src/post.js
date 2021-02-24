@@ -1,1 +1,1 @@
-export const post = () => `<h1>I am post</h1>`;
+export const post =`<h3>Estas son las publicaciones</h3>`;
