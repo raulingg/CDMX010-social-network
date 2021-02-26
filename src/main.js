@@ -66,7 +66,25 @@ let id = '';
                
            }); 
 
-
+        `;
+       // Botón borrar con confirmación
+       /* const btnsDelete = document.querySelectorAll('.btn-delete');
+        btnsDelete.forEach(btn => {
+        btn.addEventListener('click', async (e) => {
+          const confirmar = confirm('¿Seguro que quieres borrar tu post?');
+          if (confirmar === true) {
+            await deletePost(e.target.dataset.id);
+          }
+        });
+      }); */
+        // Botón de borrar, escucha evento y recupera la data del id
+/*         const btnsDelete = document.querySelectorAll('.btn-delete');
+        btnsDelete.forEach(btn =>{
+            btn.addEventListener('click', async (e) =>{
+                console.log(e.target.dataset.id);
+                await deletePost(e.target.dataset.id);
+            });
+        }); */
         // Botón de editar
         const btnsEdit = document.querySelectorAll('.btn-edit');
         btnsEdit.forEach(btn => {
@@ -82,6 +100,7 @@ let id = '';
             });
         });
     });
+    deletefunction();
   });
 });
 
