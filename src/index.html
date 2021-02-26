@@ -1,6 +1,5 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
 <head> 
   <link href="style.css"  rel="stylesheet" type="text/css"/>
   <link rel="preconnect" href="https://fonts.gstatic.com">
@@ -10,27 +9,32 @@
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
   <script src="https://kit.fontawesome.com/eb71235840.js" crossorigin="anonymous"></script>
   <title>Document</title>
+  <script src="./lib/home.js"></script>
 </head>
 <body>
   <header class="header">
     <img class="logo" src="img/logo.png" alt="logo">
   </header>
+  <div id= "root"></div>
   <div id="post-form">
     <form id="form">
       <h1>Escribe tu post</h1>
       <input id="post-title" type="text" placeholder="Título" required>
       <input id="post-location" type="text" placeholder="Coordenadas" required>
+
+      <textarea id="post-description" type="text" placeholder="Descripción" required minlength="20" rows="8"></textarea>
+
       <textarea id="post-description" type="text" placeholder="Descripción" required rows="8" minlength="20"></textarea>
       <button id="save" value="submit">Publicar</button>
   </div>
-  <div id="back-list"><div id="post-list"></div></div>
+  
   <div id="post-container"></div>
     
  
   <footer>
-    <span><i class="fas fa-arrow-alt-circle-left"></i></span>
-    <span><i class="fas fa-plus-circle"></i></i></span>
-    <span><i class="fas fa-user-circle"></i></i></span>
+    <span><a href="#" onclick="onNavigate('/'); return false;"><i class="fas fa-arrow-alt-circle-left"></i></a></span>
+    <span><a href="#" onclick="onNavigate('/posting'); return false;"> <i class="fas fa-plus-circle"></i></a></span>
+    <span><a href="#" onclick="onNavigate('/posts'); return false;"><i class="fas fa-user-circle"></i></a>></span>
   </footer>
 
   <!-- The core Firebase JS SDK is always required and must be listed first -->
@@ -58,6 +62,7 @@
   firebase.initializeApp(firebaseConfig);
   firebase.analytics();
 </script>
+  <script src="routes.js"></script>
   <script type="module" src="main.js"></script>
 </body>
 </html>
