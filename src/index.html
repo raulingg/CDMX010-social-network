@@ -18,9 +18,9 @@
   <div id="post-form">
     <form id="form">
       <h1>Escribe tu post</h1>
-      <input id="post-title" type="text" placeholder="Título">
-      <input id="post-location" type="text" placeholder="Coordenadas">
-      <textarea id="post-description" type="text" placeholder="Descripción" rows="8"></textarea>
+      <input id="post-title" type="text" placeholder="Título" required>
+      <input id="post-location" type="text" placeholder="Coordenadas" required>
+      <textarea id="post-description" type="text" placeholder="Descripción" required rows="8" minlength="20"></textarea>
       <button id="save" value="submit">Publicar</button>
   </div>
   <div id="back-list"><div id="post-list"></div></div>

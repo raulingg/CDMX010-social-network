@@ -1,4 +1,5 @@
 // Este es el punto de entrada de tu aplicacion
+import { deletefunction } from './delete.js';
 
 // import { myFunction } from './lib/index.js';
 
@@ -56,14 +57,24 @@ const getPostInfo = (id) => dataBase.collection('post').doc(id).get();
         postList.innerHTML += `
         <h2 class="title-list">${post.title}</h2>
         `;
+       // Botón borrar con confirmación
+       /* const btnsDelete = document.querySelectorAll('.btn-delete');
+        btnsDelete.forEach(btn => {
+        btn.addEventListener('click', async (e) => {
+          const confirmar = confirm('¿Seguro que quieres borrar tu post?');
+          if (confirmar === true) {
+            await deletePost(e.target.dataset.id);
+          }
+        });
+      }); */
         // Botón de borrar, escucha evento y recupera la data del id
-        const btnsDelete = document.querySelectorAll('.btn-delete');
+/*         const btnsDelete = document.querySelectorAll('.btn-delete');
         btnsDelete.forEach(btn =>{
             btn.addEventListener('click', async (e) =>{
                 console.log(e.target.dataset.id);
                 await deletePost(e.target.dataset.id);
             });
-        });
+        }); */
         // Botón de editar
         const btnsEdit = document.querySelectorAll('.btn-edit');
         btnsEdit.forEach(btn => {
@@ -80,8 +91,12 @@ const getPostInfo = (id) => dataBase.collection('post').doc(id).get();
             });
         });
     });
+    deletefunction();
   });
 });
+
+
+
 postForm.addEventListener('submit', async (e) => {
   e.preventDefault();
   const title = postForm['post-title'];
