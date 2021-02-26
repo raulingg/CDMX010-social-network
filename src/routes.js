@@ -1,12 +1,13 @@
+import home from "./home.js";
 
-const routes = {
+export const routes = {
     '/' : home,
   };
   
   const rootDiv = document.getElementById('root');
   rootDiv.innerHTML = routes[window.location.pathname];
   
-  const onNavigate = (pathname) => {
+  export const onNavigate = (pathname) => {
     window.history.pushState(
       {},
       pathname,

@@ -1,7 +1,18 @@
 
+ import {routes} from './routes.js';
+ import {home} from './home.js';
+ 
+
 //En este documento solamente tenemos lo que manipula el DOM
  import { dataBase, savePost, getPostInfo, onGetPost, deletePost, updatePost } from './lib/firebase.js';
 // myFunction();
+
+const rootDiv = document.getElementById('root');
+
+document.addEventListener('DOMContentLoaded', () =>{
+  const home = routes[window.location.pathname]
+  home();
+})
  // llama al formulario y escucha el evento
 const postForm = document.getElementById('form');
 const postContainer = document.getElementById('post-container');
@@ -96,4 +107,5 @@ postForm.addEventListener('submit', async (e) => {
   title.focus();
   console.log(title,location, description);
 });
+
 

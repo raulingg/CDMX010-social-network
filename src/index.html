@@ -9,7 +9,6 @@
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
   <script src="https://kit.fontawesome.com/eb71235840.js" crossorigin="anonymous"></script>
   <title>Document</title>
-  <script src="./lib/home.js"></script>
 </head>
 <body>
   <header class="header">
@@ -29,9 +28,9 @@
     
  
   <footer>
-    <span><a href="#" onclick="onNavigate('/'); return false;"><i class="fas fa-arrow-alt-circle-left"></i></a></span>
-    <span><a href="#" onclick="onNavigate('/posting'); return false;"> <i class="fas fa-plus-circle"></i></a></span>
-    <span><a href="#" onclick="onNavigate('/posts'); return false;"><i class="fas fa-user-circle"></i></a>></span>
+    <span><a id="toHome" href="#"><i class="fas fa-arrow-alt-circle-left"></i></a></span>
+    <span><a id="toForm" href="#"> <i class="fas fa-plus-circle"></i></a></span>
+    <span><a id="toPost" href="#"><i class="fas fa-user-circle"></i></a></span>
   </footer>
 ​
   <!-- The core Firebase JS SDK is always required and must be listed first -->
@@ -59,7 +58,6 @@
   firebase.initializeApp(firebaseConfig);
   firebase.analytics();
 </script>
-  <script src="routes.js"></script>
   <script type="module" src="main.js"></script>
 </body>
 </html>
