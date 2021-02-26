@@ -1,6 +1,5 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
 <head> 
   <link href="style.css"  rel="stylesheet" type="text/css"/>
   <link rel="preconnect" href="https://fonts.gstatic.com">
@@ -13,50 +12,35 @@
 </head>
 <body>
   <header class="header">
-    <img class="logo" src="Images/logo.png" alt="logo">
-  </header>
-  <div id="post-container"></div>
-  <div id="post-form">
-    <form id="form">
-      <p>Esribe tu post</p>
-      <input id="title" type="text" placeholder="Título">
-      <input id="location" type="text" placeholder="Coordenadas">
-      <textarea id="description" type="text" placeholder="Descripción"></textarea>
-      <button id="save">Publicar</button>
-  </div>
-    
-
-
-  <div id="post-container"></div>
     <img class="logo" src="img/logo.png" alt="logo">
   </header>
   <div id="post-form">
     <form id="form">
       <h1>Escribe tu post</h1>
-      <input id="post-title" type="text" placeholder="Título">
-      <input id="post-location" type="text" placeholder="Coordenadas">
-      <textarea id="post-description" type="text" placeholder="Descripción" rows="8"></textarea>
+      <input id="post-title" type="text" placeholder="Título" required>
+      <input id="post-location" type="text" placeholder="Coordenadas" required>
+      <textarea id="post-description" type="text" placeholder="Descripción" required minlength="20" rows="8"></textarea>
       <button id="save" value="submit">Publicar</button>
   </div>
   <div id="back-list"><div id="post-list"></div></div>
   <div id="post-container"></div>
     
-
+ 
   <footer>
     <span><i class="fas fa-arrow-alt-circle-left"></i></span>
     <span><i class="fas fa-plus-circle"></i></i></span>
     <span><i class="fas fa-user-circle"></i></i></span>
   </footer>
-
+​
   <!-- The core Firebase JS SDK is always required and must be listed first -->
 <script src="https://www.gstatic.com/firebasejs/8.2.7/firebase-app.js"></script>
-
+​
 <!-- TODO: Add SDKs for Firebase products that you want to use
      https://firebase.google.com/docs/web/setup#available-libraries -->
-
+​
      <script src="https://www.gstatic.com/firebasejs/8.2.4/firebase-firestore.js"></script>
 <script src="https://www.gstatic.com/firebasejs/8.2.7/firebase-analytics.js"></script>
-
+​
 <script>
   // Your web app's Firebase configuration
   // For Firebase JS SDK v7.20.0 and later, measurementId is optional
@@ -75,5 +59,4 @@
 </script>
   <script type="module" src="main.js"></script>
 </body>
-
 </html>
