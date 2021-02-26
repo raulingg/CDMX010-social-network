@@ -1,7 +1,6 @@
 
 //En este documento solamente tenemos lo que manipula el DOM
  import { dataBase, savePost, getPostInfo, onGetPost, deletePost, updatePost } from './lib/firebase.js';
-
 // myFunction();
  // llama al formulario y escucha el evento
 const postForm = document.getElementById('form');
