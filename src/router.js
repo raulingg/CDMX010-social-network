@@ -8,7 +8,7 @@ import { toViewLogOut } from './components/logOut.js';
 const rootDiv = document.getElementById('root');
 
 export const routes = {
-    '/home': toViewHome,
+    '/': toViewHome,
     '/singup': toViewSingUp,
     '/login': toViewLogIn,
     '/post': toViewPost,

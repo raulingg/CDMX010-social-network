@@ -22,9 +22,9 @@
         <li><a href="#" id="logout">Cerrar sesión</a></li>
        </ul>
       </nav>
-   </div>
-   <div><img src="assets/I care circle.png" class="titlelogo"></div>
-   <div><h1>I care</h1></div>
+    </div>
+    <div><img src="assets/I care circle.png" class="titlelogo"></div>
+    <div><h1>I care</h1></div>
   </header>
   <!--Main content-->
   <div class="container">
@@ -35,46 +35,18 @@
      </li>
    </ul> -->
   </div>
-
   <aside>
     <!-- Aquí van los articulos -->
     <ul class="lisGroup" id="myPost"></ul>
   </aside>
   <div id="root"></div>
+<!--FIREBASE-->
+<!-- The core Firebase JS SDK is always required and must be listed first -->
+  <script src="https://www.gstatic.com/firebasejs/8.2.9/firebase-app.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/8.2.6/firebase-auth.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/8.2.9/firebase-firestore.js"></script>
   <script type="module" src="main.js"></script>
   <script type="module" src="menu.js"></script>
-
-<!--FIREBASE-->
-
-<!-- The core Firebase JS SDK is always required and must be listed first -->
-<script src="https://www.gstatic.com/firebasejs/8.2.7/firebase-app.js"></script>
-
-<!-- TODO: Add SDKs for Firebase products that you want to use
-     https://firebase.google.com/docs/web/setup#available-libraries 
-    Queremos usar auth de Firebase
-    -->
-
-     <script src="https://www.gstatic.com/firebasejs/8.2.7/firebase-auth.js"></script>
-     <script src="https://www.gstatic.com/firebasejs/8.2.7/firebase-firestore.js"></script>
-
-     
-<script>
-  // Your web app's Firebase configuration
-  var firebaseConfig = {
-    apiKey: "AIzaSyCMoOe0AXVQgK3goG6Nd_gb68S7Rjak7w8",
-    authDomain: "i-care-4b791.firebaseapp.com",
-    projectId: "i-care-4b791",
-    storageBucket: "i-care-4b791.appspot.com",
-    messagingSenderId: "1028505964973",
-    appId: "1:1028505964973:web:643e593fefcb51781f9124"
-  };
-  // Initialize Firebase
-  firebase.initializeApp(firebaseConfig);
-  //Enviamos datos para validarlos 
-  const auth = firebase.auth();   
-  const fs = firebase.firestore();
-
-</script>
-
+  <script type="module" src="./lib/firebase.js"></script>
 </body>
 </html>
