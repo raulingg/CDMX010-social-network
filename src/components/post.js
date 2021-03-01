@@ -1,0 +1,1 @@
+export const toViewPost =`<h3>Estas son las publicaciones</h3>`;

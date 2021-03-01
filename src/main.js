@@ -2,8 +2,8 @@
 import {forRouter, onNavigate } from "./router.js";
 
 //Renderiza por default
-// let currentPathname = window.location.pathname;
-// onNavigate(currentPathname);
+let currentPathname = window.location.pathname;
+onNavigate(currentPathname);
 
 //Enlaces para acceder a las secciones
 const homeLink = document.getElementById('home');

@@ -1,1 +1,0 @@
-export const post =`<h3>Estas son las publicaciones</h3>`;

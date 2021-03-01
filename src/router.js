@@ -1,18 +1,18 @@
-import { home } from './home.js';
-import { singUp } from './singUp.js';
-import { logIn } from './login.js';
-import { post } from './post.js';
-import { logOut } from './logOut.js';
+import { toViewHome } from './components/home.js';
+import { toViewSingUp } from './components/singUp.js';
+import { toViewLogIn } from './components/login.js';
+import { toViewPost } from './components/post.js';
+import { toViewLogOut } from './components/logOut.js';
 
 //Objeto que contiene los pathnames de las secciones
 const rootDiv = document.getElementById('root');
 
 export const routes = {
-    '/home': home,
-    '/singup': singUp,
-    '/login': logIn,
-    '/post': post,
-    '/logout': logOut,
+    '/home': toViewHome,
+    '/singup': toViewSingUp,
+    '/login': toViewLogIn,
+    '/post': toViewPost,
+    '/logout': toViewLogOut,
 };
 
 //Evento click que define el pathname donde se renderizará //
@@ -29,17 +29,6 @@ export const onNavigate = (pathname) => {
         window.location.origin + pathname
     )
     rootDiv.innerHTML=routes[pathname];
-    if (pathname=='/home') {
-        console.log('This is Home');
-    } else if (pathname=='/singup') {
-        console.log('This is Sing Up');
-    } else if (pathname=='/login') {
-        console.log('This is Log In');
-    } else if(pathname=='/post') {
-        console.log('This is post');       
-    } else if (pathname=='/logout') {
-        console.log('This is Log Out');
-    }
     // const buildController = routes[pathname]
     // buildController()
 };

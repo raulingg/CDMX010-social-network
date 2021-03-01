@@ -1,0 +1,1 @@
+export const toViewHome = `<h3>I am Home</h3>`;

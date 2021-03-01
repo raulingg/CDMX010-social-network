@@ -1,1 +1,0 @@
-export const logOut = `<h3>Cerró sesión</h3>`;
