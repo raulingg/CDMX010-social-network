@@ -1,4 +1,3 @@
-import { toViewHome } from './main.js';
 export const toViewLogIn = `
 <div class="allContainer">
  <div class="section">
