@@ -1,23 +1,26 @@
 const firebaseConfig = {
-  apiKey: "AIzaSyDP4-xDQtn-5NB8-ICDuVPVNmxzB3WrYcE",
-  authDomain: "red-social--mxchilazo.firebaseapp.com",
-  projectId: "red-social--mxchilazo",
-  storageBucket: "red-social--mxchilazo.appspot.com",
-  messagingSenderId: "905471998919",
-  appId: "1:905471998919:web:eed9430c0611304c3e77e2",
-  measurementId: "G-VM890W7PCY",
+  apiKey: 'AIzaSyDP4-xDQtn-5NB8-ICDuVPVNmxzB3WrYcE',
+  authDomain: 'red-social--mxchilazo.firebaseapp.com',
+  projectId: 'red-social--mxchilazo',
+  storageBucket: 'red-social--mxchilazo.appspot.com',
+  messagingSenderId: '905471998919',
+  appId: '1:905471998919:web:eed9430c0611304c3e77e2',
+  measurementId: 'G-VM890W7PCY',
 };
 // Initialize Firebase
 firebase.initializeApp(firebaseConfig);
+const db = firebase.firestore();
 
 // comenzar firebase registra nuevos usuarios
-export const newUserAccount = (email, password) => {
+export const newUserAccount = (email, password, onNavigate, rootDiv) => {
   firebase
     .auth()
     .createUserWithEmailAndPassword(email, password)
     .then((user) => {
       // Signed in
       // ...
+      const navigate = onNavigate('/mxchilazo');
+      rootDiv.innerHTML = navigate;
       console.log(user);
     })
     .catch((error) => {
@@ -29,11 +32,13 @@ export const newUserAccount = (email, password) => {
 };
 
 // usuarios existentes
-export const loginUser = (email, password) => {
+export const loginUser = (email, password, onNavigate, rootDiv) => {
   firebase
     .auth()
     .signInWithEmailAndPassword(email, password)
     .then((user) => {
+      const navigate = onNavigate('/mxchilazo');
+      rootDiv.innerHTML = navigate;
       console.log(user);
       // Signed in
       // ...
@@ -97,5 +102,21 @@ export const facebookAuth = () => {
       // The firebase.auth.AuthCredential type that was used.
       const credential = error.credential;
       // ...
+    });
+};
+
+export const createUser = (email, password) => {
+  // Add a new document in collection "cities"
+  db.collection("users")
+    .doc()
+    .set({
+      email,
+      password,
+    })
+    .then(() => {
+      console.log("Document successfully written!");
+    })
+    .catch((error) => {
+      console.error("Error writing document: ", error);
     });
 };
