@@ -225,3 +225,109 @@ h3{
     line-height: 17px;
     color: #FFFFFF;
 }
+
+/* pantallas extra */
+#xView{
+    margin-top: -60px;
+}
+#header{
+    margin-top: 90px;
+}
+#logoHeader{
+    width: 50%;
+    position: absolute;
+    display: inline-block;
+    left: 97px;
+}
+#btnHome{
+    position: absolute;
+    width: 10%;
+    display: inline-block;
+    left: 55px;
+    /* margin: 10px 25px; */
+}
+#btnMenu{
+    position: absolute;
+    width: 10%;
+    display: inline-block;
+    left: 290px;
+    /* margin: 10px 280px; */
+}
+nav{
+    width: 60%;
+    margin-left: 95px;
+    text-align: right;
+}
+ul{
+    list-style: none;
+}
+li#toTownHall{
+    margin-top: 60px;
+}
+li:hover{
+    background-color: rgba(233, 66, 156, 0.67);
+}
+a:hover{
+    color: white;
+}
+.enable-menu{
+    display: block;
+}
+.disable-menu{
+    display: none;
+}
+#search{
+    position: absolute;
+    width: 270px;
+    height: 37px;
+    left: 55px;
+    top: 100px;
+    background: #FFFBFD;
+    border: 2px solid #D797D3;
+    box-sizing: border-box;
+    font-family: 'Montserrat', sans-serif;
+}
+#searchIcon{
+    position: absolute;
+    left: 290px;
+}
+#sectionView h2{
+    position: absolute;
+    top: 150px;
+    display: block;
+    left: 100px;
+}
+#placeView{
+    position: absolute;
+    display: inline-block;
+    top: 230px;
+    left:55px;
+}
+#placePhoto{
+    width: 85%;
+    border: 5px solid #E9429C;
+    display: inline-block;
+
+}
+#placeView h3{
+    color: white;
+    position: relative;
+    margin: -5px;
+    top: -41px;
+    left: -80px;
+}
+#rectangle{
+    position: absolute;
+    width: 265px;
+    height: 44px;
+    left: 0px;
+    top: 118px;
+
+background: rgba(233, 66, 156, 0.67);
+}
+#likeIcon{
+    width: 8%;
+    top: 125px;
+    position: absolute;
+    left: 220px;
+}

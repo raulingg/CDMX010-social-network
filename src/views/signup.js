@@ -6,8 +6,8 @@ export const signUp = `
     <input  type="password" id="signupPassword" class="input" placeholder="Contraseña" required>
     <input type="button" id="btnSignUp" class="btnSignUp" value="REGISTRARME">
     <h3>o con tus redes sociales</h3> 
-    <button type="submit" class="btnGmail"><img src="img/google.png" alt="Gmail" id="gmailIcon"></button>
-    <button type="submit" class="btnFacebook"><img src="img/facebook.png" alt="Facebook" id="facebookIcon"></button>
+    <button type="submit"  id="btnGmail" class="btnGmail"><img src="img/google.png" alt="Gmail" id="gmailIcon"></button>
+    <button type="submit" id="btnFacebook" class="btnFacebook"><img src="img/facebook.png" alt="Facebook" id="facebookIcon"></button>
     <input type="image" id="returnArrow" class="returnArrow" src="img/Vector.png">
   </div>
 `;
