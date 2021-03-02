@@ -6,14 +6,14 @@ import { posting } from './posting.js';
 import { home } from './home.js';
 import { post } from './post.js';
 import CardPost from './components/CardPost.js';
-posting();
 
+posting();
 const rootDiv = document.getElementById('root');
-let id = '';
 const postForm = document.getElementById('form');
 
 // vista al cargar home
 window.addEventListener('DOMContentLoaded', () => {
+  const home = routes[window.location.pathname];
   home(rootDiv);
   onGetPost((querySnapshot) => {
     const postList = document.getElementById('post-list');
@@ -65,7 +65,7 @@ const toForm = document.getElementById('toForm');
 toForm.addEventListener('click', async (e) => {
   e.preventDefault();
   onNavigate('/posting');
-  posting(rootDiv);
+  posting();
   let editStatus = false;
   const postForm = document.getElementById('form');
   postForm.addEventListener('submit', async (e) => {
@@ -206,21 +206,21 @@ btnsDelete.forEach(btn => {
         }); */
 function editP() {
   const btnsEdit = document.querySelectorAll('.btn-edit');
-btnsEdit.forEach(btn => {
-  btn.addEventListener('click', async (e) => {
-    e.preventDefault();
-    onNavigate('/posting');
-    const postForm = document.getElementById('form');
-    const doc = await getPostInfo(e.target.dataset.id);
-    const postEditing = doc.data();
-    editStatus = true;
-    id = doc.id;
-    postForm['post-title'].value = postEditing.title;
-    postForm['post-location'].value = postEditing.location;
-    postForm['post-description'].value = postEditing.description;
-    postForm['save'].innerText = 'Actualizar';    
+  btnsEdit.forEach(btn => {
+    btn.addEventListener('click', async (e) => {
+      e.preventDefault();
+      onNavigate('/posting');
+      const postForm = document.getElementById('form');
+      const doc = await getPostInfo(e.target.dataset.id);
+      const postEditing = doc.data();
+      editStatus = true;
+      id = doc.id;
+      postForm['post-title'].value = postEditing.title;
+      postForm['post-location'].value = postEditing.location;
+      postForm['post-description'].value = postEditing.description;
+      postForm['save'].innerText = 'Actualizar';    
+    });
   });
-});
 }
 // Botón de editar
 const btnsEdit = document.querySelectorAll('.btn-edit');

@@ -13,7 +13,7 @@ export const routes = {
 const rootDiv = document.getElementById('root');
 rootDiv.innerHTML = routes[window.location.pathname];
 export const onNavigate = (pathname) => {
-  window.history.pushState(
+  window.history.replaceState(
     {},
     pathname,
     window.location.origin + pathname,

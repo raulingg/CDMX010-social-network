@@ -1,5 +1,5 @@
 const CardPost = (post) => {
-    return `
+  return `
     <div id="mainPost">
             <h2 class="title">${post.title}</h2>
             <p class="plocation">${post.location}</p>
@@ -11,5 +11,5 @@ const CardPost = (post) => {
             </div>  
         </div>
     `;
-}
+};
 export default CardPost
