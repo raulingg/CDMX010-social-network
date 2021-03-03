@@ -3,6 +3,8 @@ import { routes, onNavigate } from "./routes.js";
 import { googleAuth, facebookAuth } from "./lib/firebase.js";
 import { signupFunc } from "./utils/signupUtils.js";
 import { loginFunc } from "./utils/loginUtils.js";
+import { places, placeCard } from "./views/placeCards.js";
+import { setCards } from "./utils/firstviewUtils.js";
 
 let rootDiv = null;
 
@@ -12,11 +14,11 @@ function back() {
 }
 
 function loginGmail() {
-  googleAuth();
+  googleAuth(onNavigate, rootDiv);
 }
 
 function loginFacebook() {
-  facebookAuth();
+  facebookAuth(onNavigate, rootDiv);
 }
 
 function btnLogin() {
@@ -31,9 +33,9 @@ function btnSignUp() {
   signupFunc();
 }
 
-function mxchilazoView() {
-  
-}
+// function mxchilazoView() {
+
+// }
 
 window.addEventListener("DOMContentLoaded", () => {
   rootDiv = document.getElementById("root");
@@ -57,6 +59,11 @@ window.addEventListener("DOMContentLoaded", () => {
   // eventodeboton
 });
 
+export function lugares() {
+  const html = setCards(places, placeCard);
+  const cardPlace = document.querySelector("#placesContainer");
+  cardPlace.innerHTML = html;
+}
 window.onpopstate = () => {
   rootDiv.innerHTML = routes[window.location.pathname];
   btnLogin();

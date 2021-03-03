@@ -1,3 +1,5 @@
+import { lugares } from '../main.js';
+
 const firebaseConfig = {
   apiKey: 'AIzaSyDP4-xDQtn-5NB8-ICDuVPVNmxzB3WrYcE',
   authDomain: 'red-social--mxchilazo.firebaseapp.com',
@@ -51,7 +53,7 @@ export const loginUser = (email, password, onNavigate, rootDiv) => {
 };
 
 // autentificacion google
-export const googleAuth = () => {
+export const googleAuth = (onNavigate, rootDiv) => {
   const provider = new firebase.auth.GoogleAuthProvider();
   firebase
     .auth()
@@ -64,7 +66,10 @@ export const googleAuth = () => {
       // The signed-in user info.
       const user = result.user;
       // ...
-      console.log(user);
+      const navigate = onNavigate('/mxchilazo');
+      rootDiv.innerHTML = navigate;
+      lugares();
+      console.log(result);
     })
     .catch((error) => {
       // Handle Errors here.
@@ -79,7 +84,7 @@ export const googleAuth = () => {
 };
 
 // autentificacion facebook
-export const facebookAuth = () => {
+export const facebookAuth = (onNavigate, rootDiv) => {
   const provider = new firebase.auth.FacebookAuthProvider();
   firebase
     .auth()
@@ -92,6 +97,9 @@ export const facebookAuth = () => {
       // This gives you a Facebook Access Token. You can use it to access the Facebook API.
       const accessToken = credential.accessToken;
       // ...
+      const navigate = onNavigate('/mxchilazo');
+      rootDiv.innerHTML = navigate;
+      console.log(result);
     })
     .catch((error) => {
       // Handle Errors here.
