@@ -1,12 +1,12 @@
-import { home } from './pages/home.js';
-import { form } from './pages/form.js';
+import { home, printData } from './pages/home.js';
+import { formpost } from './pages/formpost.js';
 import { post } from './pages/post.js';
 import { singlepost } from './pages/singlepost.js';
 
 export const routes = {
   '/': home,
   '/post': post,
-  '/form': form,
+  '/formpost': formpost,
   '/singlepost': singlepost,
 };
 
@@ -20,6 +20,7 @@ export const onNavigate = (pathname) => {
     window.location.origin + pathname,
   );
   rootDiv.innerHTML = routes[pathname];
+  printData();
 };
 
 window.onpopstate = () => {

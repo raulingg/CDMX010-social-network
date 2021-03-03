@@ -1,4 +1,7 @@
 import { routes, onNavigate } from './routes.js';
+// import { home, printData } from './pages/home.js';
+// import { onGetPost } from './lib/firebase.js';
+// import { onGetPost } from './lib/firebase.js';
 
 const rootDiv = document.getElementById('root');
 rootDiv.innerHTML = routes[window.location.pathname];
@@ -17,7 +20,7 @@ goToForm.addEventListener('click', (e) => {
 });
 goToPost.addEventListener('click', (e) => {
   e.preventDefault();
-  onNavigate('/form');
+  onNavigate('/formpost');
 });
 /* // single post
 const goToSingle = document.querySelectorAll('single-post');

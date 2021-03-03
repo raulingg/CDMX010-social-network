@@ -1,11 +1,14 @@
-import { onGetPost } from '../lib/firebase.js';
+import { onGetPost, getPosts, traedatos } from '../lib/firebase.js';
 import { templetehome } from '../components/templetehome.js';
 
-export const home = templetehome;
-const rootDiv = document.getElementById('root');
-rootDiv.innerHTML = home;
+traedatos();
+getPosts();
+console.log(getPosts);
 
 export const printData = onGetPost((querySnapshot) => {
+    const home = templetehome;
+    const rootDiv = document.getElementById('root');
+    rootDiv.innerHTML = home;
   const postList = document.getElementById('post-list');
   postList.innerHTML = '';
   querySnapshot.forEach((doc) => {
