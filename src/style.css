@@ -95,7 +95,6 @@ h3{
     background-size: cover;
     width: 100vw;
     height: 100vh;
-    display: flex;
     overflow: scroll;
 }
 #loginEmail, #signupEmail{
@@ -279,11 +278,11 @@ a:hover{
     display: none;
 }*/
 #search{
-    position: absolute;
-    width: 270px;
+    position: relative;
+    width: 288px;
     height: 37px;
-    left: 55px;
-    top: 100px;
+    left: 45px;
+    top: 70px;
     background: #FFFBFD;
     border: 2px solid #D797D3;
     box-sizing: border-box;
@@ -294,10 +293,9 @@ a:hover{
     left: 290px;
 }
 #sectionView h2{
-    position: absolute;
-    top: 150px;
+    position: relative;
+    top: 78px;
     display: block;
-    left: 100px;
 }
 #placeView{
     position: absolute;
@@ -318,24 +316,37 @@ a:hover{
     top: -41px;
     left: -80px;
 }
-#rectangle{
-    position: absolute;
-    width: 265px;
+#namePlace{
+    /* width: 265px;
     height: 44px;
     left: 0px;
     top: 118px;
-    background: rgba(233, 66, 156, 0.67);
+    margin-right: 0;
+    background: rgba(233, 66, 156, 0.67); */
+    text-align: center;
+    /* display: inline-block; */
+    /* position: absolute; */
 }
 #likeIcon{
     width: 8%;
     top: 125px;
-    position: absolute;
+    /* position: absolute; */
     left: 220px;
 }
 
 #placesContainer{
-    align-items: center;
+    display: flex;
+    justify-content: center;
     flex-flow: row wrap;
+}
+#rectangle {
+    width: 288px;
+    height: 54px;
+    left: 0px;
+    top: 118px;
+    background: rgba(233, 66, 156, 0.67);
+    margin-right: 0;
+    margin-bottom: 20px;
 }
 
 #placeImg{
@@ -344,7 +355,23 @@ a:hover{
     left: 41px;
     top: 180px;
     border: 5px solid #E9429C;
+    /* display: inline-block; */
+}
+
+/* #delegation{
     display: inline-block;
+} */
+
+#dataContainer{
+    display: flex;
+    margin-top: 100px;
+}
+
+#one-container h3{
+    margin: 0 0;
+}
+#one-container h4{
+    margin: 0 0;
 }
 
 /*------------------- INICIA MENÚ ------------------------------------*/
