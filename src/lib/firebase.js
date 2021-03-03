@@ -23,6 +23,7 @@ export const newUserAccount = (email, password, onNavigate, rootDiv) => {
       // ...
       const navigate = onNavigate('/mxchilazo');
       rootDiv.innerHTML = navigate;
+      lugares();
       console.log(user);
     })
     .catch((error) => {
@@ -41,6 +42,7 @@ export const loginUser = (email, password, onNavigate, rootDiv) => {
     .then((user) => {
       const navigate = onNavigate('/mxchilazo');
       rootDiv.innerHTML = navigate;
+      lugares();
       console.log(user);
       // Signed in
       // ...
@@ -99,6 +101,7 @@ export const facebookAuth = (onNavigate, rootDiv) => {
       // ...
       const navigate = onNavigate('/mxchilazo');
       rootDiv.innerHTML = navigate;
+      lugares();
       console.log(result);
     })
     .catch((error) => {

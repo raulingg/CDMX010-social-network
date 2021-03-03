@@ -47,8 +47,9 @@ export const firstView = `
   <div id="sectionView">
     <h2>Quizá te interese:</h2>
   </div>
-
-  <div id="placesContainer"></div>
+  <div id="dataContainer">
+    <div id="placesContainer" class="placesContainer"></div>
+  </div>
 
 </div>
 `;
