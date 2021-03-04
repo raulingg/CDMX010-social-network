@@ -7,7 +7,7 @@ const CardPost = (post) => {
             <div id="icons">
               <i class="far fa-trash-alt btn-delete" data-id="${post.id}"></i>
               <span><i class="fas fa-heart"></i></span>
-              <i class="fas fa-pencil-alt btn-edit" data-id="${post.id}"></i>
+              <a href="/posting?id=${post.id}" class="btn-edit"><i class="fas fa-pencil-alt"></i></a>
             </div>  
         </div>
     `;
