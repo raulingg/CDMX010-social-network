@@ -11,15 +11,23 @@ export const routes = {
 };
 
 const rootDiv = document.getElementById('root');
-rootDiv.innerHTML = routes[window.location.pathname];
-export const onNavigate = (pathname) => {
-  window.history.replaceState(
+const homeViewFunction = routes[window.location.pathname];
+homeViewFunction(rootDiv);
+
+export const onNavigate = (path) => {
+  const [pathname] = path.split('?')
+  
+  window.history.pushState(
     {},
     pathname,
-    window.location.origin + pathname,
+    `${window.location.origin}${path}`,
   );
-  rootDiv.innerHTML = routes[pathname];
+
+  const viewFunction = routes[pathname];
+  viewFunction(rootDiv);
 };
+
 window.onpopstate = () => {
-  rootDiv.innerHTML = routes[window.location.pathname];
+  const viewFunction  = routes[window.location.pathname];
+  viewFunction(rootDiv);
 };
