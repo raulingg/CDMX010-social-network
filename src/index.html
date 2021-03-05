@@ -9,44 +9,14 @@
   <link href="https://fonts.googleapis.com/css2?family=Montserrat&display=swap" rel="stylesheet">
   <title>I care</title>
 </head>
-<body>
-  <header>
-    <div class="menuIcon">
-      <a id="btn-menu"><img src="assets/menu.png" class="btn-menu"> </a>
-      <nav class="disable-menu" id="nav">
-       <ul>        
-        <li><a href="#" id="home">Inicio</a></li>
-        <li><a href="#" id="singUp">Crear Cuenta</a></li>
-        <li><a href="#" id="login">Ingresar</a></li>
-        <li><a href="#" id="post">Publicaciones</a></li>
-        <li><a href="#" id="logout">Cerrar sesión</a></li>
-       </ul>
-      </nav>
-    </div>
-    <div><img src="assets/I care circle.png" class="titlelogo"></div>
-    <div><h1>I care</h1></div>
-  </header>
-  <!--Main content-->
-  <div class="container">
-   <!-- <ul class="lisGroup" id="myPost">
-      <li class="item">
-       <h3>Título</h3>
-       <p>Lorem ipsum dolor sit.</p>
-     </li>
-   </ul> -->
-  </div>
-  <aside>
-    <!-- Aquí van los articulos -->
-    <ul class="lisGroup" id="myPost"></ul>
-  </aside>
   <div id="root"></div>
 <!--FIREBASE-->
 <!-- The core Firebase JS SDK is always required and must be listed first -->
   <script src="https://www.gstatic.com/firebasejs/8.2.9/firebase-app.js"></script>
   <script src="https://www.gstatic.com/firebasejs/8.2.6/firebase-auth.js"></script>
   <script src="https://www.gstatic.com/firebasejs/8.2.9/firebase-firestore.js"></script>
+  <script type="module" src="./lib/firebase.js"></script>
   <script type="module" src="main.js"></script>
   <script type="module" src="menu.js"></script>
-  <script type="module" src="./lib/firebase.js"></script>
 </body>
 </html>

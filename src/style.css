@@ -96,8 +96,8 @@ input{
     /* border-color:  rgb(242,105,95); */
     background-color: white;
     /* border-width: 3px; */
-    border: 1px solid rgb(242,105,95);
-    color: rgb(242,105,95);
+    border: 1px solid #fbb84d;
+    color: #a863a7;
 }
 
 input[type=text]:focus {
@@ -125,11 +125,27 @@ input[type=text]:focus {
       margin-bottom: 10px;
       border:none;
   }
+  .btnTypeB{
+    background-color:#fbb84d;
+    color: white;
+    font-size: 20px;
+    border-radius: 30px;
+    padding: 15px;
+    margin-bottom: 10px;
+    border:none;
+}
 
   .btnType:hover{
-    background-color:white;
-    color:rgb(242,105,95);
-    border: 1px solid rgb(242,105,95); 
+    background-color:#a863a7 ;
+    color:white;
+    border: 1px solid#a863a7; 
+    border-radius: 30px;  
+}
+
+.btnTypeB:hover{
+    background-color:#a863a7;
+    color:white;
+    border: 1px solid#a863a7; 
     border-radius: 30px;  
 }
 

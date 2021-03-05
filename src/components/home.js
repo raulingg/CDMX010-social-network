@@ -1,5 +1,6 @@
 import {toViewLogIn} from './login.js';
 import {toViewSingUp} from './singup.js';
+import { onNavigate } from '../router.js';
 export const toViewHome = 
   `
   <div class="allContainer">
@@ -17,6 +18,7 @@ window.addEventListener('DOMContentLoaded', () => {
   //  console.log("entro a boton inicio");  
   root.innerHTML = "";
   root.innerHTML = toViewLogIn;
+  onNavigate('/login');
    })
 });
 window.addEventListener('DOMContentLoaded', () => {
@@ -26,5 +28,6 @@ window.addEventListener('DOMContentLoaded', () => {
   //  console.log("entro a boton inicio");  
   root.innerHTML = "";
   root.innerHTML = toViewSingUp;
+  onNavigate('/singup');
    })
 });
