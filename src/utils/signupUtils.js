@@ -8,7 +8,7 @@ export const signupFunc = () => {
     e.preventDefault();
     const email = document.querySelector('#signupEmail').value;
     const password = document.querySelector('#signupPassword').value;
-    // comenzar firebase registra nuevos usuarios con auth
+    // comenzar firestore registra nuevos usuarios con auth
     newUserAccount(email, password, onNavigate, rootDiv);
   });
 };

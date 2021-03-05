@@ -4,7 +4,7 @@ export const places = data.place;
 
 export const placeCard = (place) => {
   const component = `
-    <div id="one-container">
+    <div id="one-container" class="one-container">
       <img id="placeImg" src="${place.img}"class="img-container">
       <div id="rectangle">
         <h3 id="namePlace">${place.name}</h3>
@@ -13,5 +13,5 @@ export const placeCard = (place) => {
       </div>
     </div>
     `;
-    return component;
+  return component;
 };
