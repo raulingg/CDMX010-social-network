@@ -1,14 +1,14 @@
-import { welcome } from './views/welcome.js';
-import { signUp } from './views/signup.js';
-import { logIn } from './views/login.js';
-import { firstView } from './views/firstView.js';
-import { retroView } from './views/retroView.js';
+import { welcome } from './components/welcome.js';
+import { signUpView } from './components/signup.js';
+import { logIn } from './components/login.js';
+import { placesView } from './components/places.js';
+import { retroView } from './components/retro.js';
 
 export const routes = {
   '/': welcome,
-  '/signUp': signUp,
+  '/signUp': signUpView,
   '/logIn': logIn,
-  '/mxchilazo': firstView,
+  '/mxchilazo': placesView,
   '/bellasArtes': retroView,
 };
 

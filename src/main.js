@@ -1,39 +1,45 @@
 /* eslint-disable quotes */
+import { newUserAccount, loginUser, googleAuth, facebookAuth, buildReview } from './lib/firebase.js';
 import { routes, onNavigate } from "./routes.js";
-import { googleAuth, facebookAuth } from "./lib/firebase.js";
-import { signupFunc } from "./utils/signupUtils.js";
-import { loginFunc } from "./utils/loginUtils.js";
-import { newReview } from "./utils/retroviewUtils.js";
-import { places, placeCard } from "./views/placeCards.js";
-import { setCards } from "./utils/firstviewUtils.js";
+import { signupFunc } from './components/signup.js';
+import { loginFunc } from './components/login.js';
+import { places, placeCard, setCards } from './components/places.js';
+import { newReview } from "./components/retro.js";
+// import { newReview } from "./utils/retroviewUtils.js";
+// import { places, placeCard } from "./views/placeCards.js";
+// import { setCards } from "./utils/firstviewUtils.js";
 
 let rootDiv = null;
 
+// panatalla welcome
+function btnLogin() {
+  const navigate = onNavigate("/logIn");
+  rootDiv.innerHTML = navigate;
+}
+
+// panatalla welcome
+function btnSignUp() {
+  const navigate = onNavigate("/signUp");
+  rootDiv.innerHTML = navigate;
+}
+
+// ambas pantallas
 function back() {
   const navigate = onNavigate("/");
   rootDiv.innerHTML = navigate;
 }
 
+// ambas pantallas
 function loginGmail() {
   googleAuth(onNavigate, rootDiv);
 }
 
+// ambas pantallas
 function loginFacebook() {
   facebookAuth(onNavigate, rootDiv);
 }
 
-function btnLogin() {
-  const navigate = onNavigate("/logIn");
-  rootDiv.innerHTML = navigate;
-  loginFunc();
-}
-
-function btnSignUp() {
-  const navigate = onNavigate("/signUp");
-  rootDiv.innerHTML = navigate;
-  signupFunc();
-}
-
+// pantalla 3 de
 export function lugares() {
   const html = setCards(places, placeCard);
   const cardPlace = document.querySelector("#placesContainer");
@@ -46,16 +52,17 @@ function viewOnePlace() {
   // cargar aqui la info del contenedor rewies
 }
 
-function postnew() {
-  newReview();
-}
+// function postnew() {
+//   newReview();
+// }
 
-function bReviews() {
-  // se lleva a la firebase cuando cambie de vista a reseña
-  const oneReview = reviewCard();
-  const reviewsContainer = document.querySelector("#reviewsContainer");
-  reviewsContainer.innerHTML = oneReview;
-}
+// function bReviews() {
+// se lleva a la firebase cuando cambie de vista a reseña
+//
+//   const oneReview = reviewCard();
+//   const reviewsContainer = document.querySelector("#reviewsContainer");
+//   reviewsContainer.innerHTML = oneReview;
+// }
 
 window.addEventListener("DOMContentLoaded", () => {
   rootDiv = document.getElementById("root");
@@ -63,10 +70,14 @@ window.addEventListener("DOMContentLoaded", () => {
   rootDiv.addEventListener("click", (event) => {
     const target = event.target;
     // if (target.id !== 'signUp' && target.id !== 'login') return;
-    if (target.id === "signUp") {
-      btnSignUp();
-    } else if (target.id === "login") {
+    if (target.id === "login") {
       btnLogin();
+    } else if (target.id === "signUp") {
+      btnSignUp();
+    } else if (target.id === "btnSignUp") {
+      signupFunc(newUserAccount, onNavigate, rootDiv, lugares);
+    } else if (target.id === "enter") {
+      loginFunc(loginUser, onNavigate, rootDiv, lugares);
     } else if (target.id === "btnGmail") {
       loginGmail();
     } else if (target.id === "btnFacebook") {
@@ -76,7 +87,7 @@ window.addEventListener("DOMContentLoaded", () => {
     } else if (target.id === "placeImg") {
       viewOnePlace();
     } else if (target.id === "postIt") {
-      postnew();
+      newReview(buildReview);
     }
   });
   // console.log(document.querySelector('#returnArrow'));

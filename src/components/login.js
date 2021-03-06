@@ -1,3 +1,5 @@
+// import { onNavigate } from '../routes.js';
+
 export const logIn = `
 <div id="loginViewContainer" class="container">
     <img id="logo" src="img/logo_mochilazo.png" alt="MXCHILAZO">
@@ -11,3 +13,13 @@ export const logIn = `
     <input type="image" id="returnArrow" class="returnArrow" src="img/Vector.png">
 </div>
 `;
+
+// const rootDiv = document.getElementById('root');
+
+export const loginFunc = (loginUser, onNavigate, rootDiv, lugares) => {
+  const email = document.querySelector('#loginEmail').value;
+  const password = document.querySelector('#loginPassword').value;
+  // console.log(email + password);
+  // usuarios existentes en auth
+  loginUser(email, password, onNavigate, rootDiv, lugares);
+};
