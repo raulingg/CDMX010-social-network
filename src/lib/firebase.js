@@ -1,5 +1,3 @@
-import { lugares } from "../main.js";
-
 const firebaseConfig = {
   apiKey: "AIzaSyDP4-xDQtn-5NB8-ICDuVPVNmxzB3WrYcE",
   authDomain: "red-social--mxchilazo.firebaseapp.com",
@@ -28,7 +26,7 @@ function saveData(user) {
 }
 
 // comenzar firebase registra nuevos usuarios
-export const newUserAccount = (email, password, onNavigate, rootDiv) => {
+export const newUserAccount = (email, password, onNavigate, rootDiv, lugares) => {
   firebase
     .auth()
     .createUserWithEmailAndPassword(email, password)
@@ -50,7 +48,7 @@ export const newUserAccount = (email, password, onNavigate, rootDiv) => {
 };
 
 // usuarios existentes
-export const loginUser = (email, password, onNavigate, rootDiv) => {
+export const loginUser = (email, password, onNavigate, rootDiv, lugares) => {
   firebase
     .auth()
     .signInWithEmailAndPassword(email, password)
