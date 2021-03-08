@@ -19,6 +19,7 @@ export const toViewSingUp = `
  </div>
 </div>
 `;
+
 const singUpForm = document.querySelector('#singUp-form');
 singUpForm.addEventListener('submit',(e) => {
     e.preventDefault();
