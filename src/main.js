@@ -1,12 +1,13 @@
 /* eslint-disable quotes */
-import { newUserAccount, loginUser, googleAuth, facebookAuth, buildReview, getReview } from './lib/firebase.js';
+import { newUserAccount, loginUser, googleAuth, facebookAuth, buildReview, onGetReviews, deleteReview } from './lib/firebase.js';
 import { routes, onNavigate } from "./routes.js";
 import { signupFunc } from './components/signup.js';
 import { loginFunc } from './components/login.js';
 import { places, placeCard, setCards } from './components/places.js';
-import { newReview, seeReviews } from "./components/retro.js";
+import { newReview, seeReviews, quitReview } from "./components/retro.js";
 
 let rootDiv = null;
+// let reviewId = e.target.dataset.id;
 
 // panatalla welcome
 function btnLogin() {
@@ -70,9 +71,12 @@ window.addEventListener("DOMContentLoaded", () => {
       back();
     } else if (target.id === "placeImg") {
       viewOnePlace();
+      seeReviews(onGetReviews);
     } else if (target.id === "postIt") {
       newReview(buildReview);
-      seeReviews(getReview);
+      seeReviews(onGetReviews);
+    } else if (target.id === "btnDelete") {
+      quitReview(deleteReview, target.dataset.id);
     }
   });
   // console.log(document.querySelector('#returnArrow'));
