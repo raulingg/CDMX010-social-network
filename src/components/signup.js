@@ -1,7 +1,3 @@
-// import { onNavigate } from '../routes.js';
-
-// const rootDiv = document.getElementById('root');
-
 export const signUpView = `
 <div id="signUpViewContainer" class="container">
     <img id="logo" src="img/logo_mochilazo.png" alt="MXCHILAZO">

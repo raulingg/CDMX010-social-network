@@ -587,3 +587,13 @@ header{
     padding-top:50px;
 }
 /*fin menu responsive*/
+#card{
+    position: relative;
+    width: 278px;
+    height: auto;
+    left: 44px;
+
+    background: #FFFAFD;
+    border: 2px solid #D797D3;
+    box-sizing: border-box;
+}

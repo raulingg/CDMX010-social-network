@@ -67,27 +67,36 @@ export const retroView = `
 
     </div>
 `;
-// const postCont = document.querySelector('#postContainer');
 
 // subir info a firestore
 export const newReview = async (buildReview) => {
-  //   document.querySelector('#postIt').addEventListener('click', (e) => {
-  //     e.preventDefault();
-  const name = document.querySelector('#name').value;
-  const post = document.querySelector('#review').value;
+  const name = document.querySelector("#name").value;
+  const post = document.querySelector("#review").value;
   console.log(name, post);
   // comenzar firebase registra posteos en fs
   await buildReview(name, post);
   //   });
 };
 
-// exportar de firebase para el parametro doc
-
-// export const reviewCard = (doc) => {
-//     const component = `
+export const seeReviews = async (getReview) => {
+  const reviewsContainer = document.querySelector('#reviewsContainer');
+  const querySnapshot = await getReview();
+  querySnapshot.forEach((doc) => {
+    console.log(doc.data());
+    reviewsContainer.innerHTML += `
+               <div id="card" class="card">
+                 <p>Usuario: ${doc.data().name}<br>Reseña: ${doc.data().post}</p>
+                 <input type="button" id="btnComment" class="btnComment" value="COMENTAR">
+               </div>
+              `;
+  });
+};
+// const reviewCard = (doc) => {
+//   const component = `
 //         <div id="card" class="card">
 //           <h3>${doc.data().name}</h3>
+//           <h3>${doc.data().review}</h3>
 //         </div>
 //         `;
-//     return component;
-//   };
+//   return component;
+// };
