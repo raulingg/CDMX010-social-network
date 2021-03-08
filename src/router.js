@@ -16,11 +16,11 @@ export const routes = {
 };
 
 //Evento click que define el pathname donde se renderizará //
-export function forRouter(linkId,PathName) {
-    linkId.addEventListener('click', () => {
-        onNavigate(PathName); return false;
-    })
-    }
+// export function forRouter(linkId,PathName) {
+//     linkId.addEventListener('click', () => {
+//         onNavigate(PathName); return false;
+//     })
+//     }
 //Función que renderiza el pathname 
 export const onNavigate = (pathname) => {
     window.history.pushState(

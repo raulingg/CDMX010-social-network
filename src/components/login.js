@@ -1,3 +1,5 @@
+import {inLogIn, toLogFacebook, toLogGoogle} from '../lib/firebase.js';
+import { onNavigate } from '../router.js';
 export const toViewLogIn = `
 <div class="allContainer">
  <div class="section">
@@ -15,4 +17,27 @@ export const toViewLogIn = `
  </div>
 </div>
 `;
-/* <h3>Inició sesión</h3> */
+
+//Iniciar Sesión
+
+const myLogInForm = document.querySelector('#logIn-form');
+myLogInForm.addEventListener('submit', (e) => {
+    e.preventDefault();
+    const logInEmail = document.querySelector('#logIn-email').value;
+    const logInPassword = document.querySelector('#logIn-password').value;
+    inLogIn(logInEmail,logInPassword);
+    onNavigate('/login');
+    // console.log(logInEmail, logInPassword)
+});
+
+const facebookButton = document.querySelector('#facebookAccess');
+ facebookButton.addEventListener('click', e => {
+  e.preventDefault();
+  toLogFacebook();
+});
+
+const googleButton = document.querySelector('#googleAccess');
+  googleButton.addEventListener('click', e => {
+    e.preventDefault();
+    toLogGoogle();
+});
