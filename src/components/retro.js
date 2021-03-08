@@ -70,33 +70,61 @@ export const retroView = `
 
 // subir info a firestore
 export const newReview = async (buildReview) => {
-  const name = document.querySelector("#name").value;
-  const post = document.querySelector("#review").value;
+  const name = document.querySelector('#name').value;
+  const post = document.querySelector('#review').value;
   console.log(name, post);
   // comenzar firebase registra posteos en fs
   await buildReview(name, post);
   //   });
 };
 
+/* 1.- sirvió se obtuvo la data
 export const seeReviews = async (getReview) => {
   const reviewsContainer = document.querySelector('#reviewsContainer');
   const querySnapshot = await getReview();
   querySnapshot.forEach((doc) => {
     console.log(doc.data());
+
+    const revs = doc.data();
+
     reviewsContainer.innerHTML += `
-               <div id="card" class="card">
-                 <p>Usuario: ${doc.data().name}<br>Reseña: ${doc.data().post}</p>
+               <div id="reviewCard" class="reviewCard">
+                 <p>Usuario: ${revs.name}<br>Reseña: ${revs.post}</p>
                  <input type="button" id="btnComment" class="btnComment" value="COMENTAR">
+                 <button type="submit"  id="btnEdit"><img src="img/edit.png" alt="Edit" id="editIcon"></button>
+                 <button type="submit"  id="btnDelete"><img src="img/delete.png" alt="Delete" id="deleteIcon"></button>
                </div>
               `;
   });
+}; */
+
+// quitar los comentarios repetidos funciona!!
+export const seeReviews = async (onGetReviews) => {
+  const reviewsContainer = document.querySelector('#reviewsContainer');
+  // cada vez que se ejecute el get dara un dato cada vez que cambie
+  await onGetReviews((querySnapshot) => { // se recibe a travez del objeto query, todos los datos
+    // antes de que hagas el foreach
+    reviewsContainer.innerHTML = '';
+    querySnapshot.forEach((doc) => {
+      // console.log(doc.data());
+
+      const revs = doc.data();
+      revs.id = doc.id;
+      console.log(revs);
+      reviewsContainer.innerHTML += `
+                <div id="reviewCard" class="reviewCard">
+                    <p>Usuario: ${revs.name}<br>Reseña: ${revs.post}</p>
+                    <input type="button" id="btnComment" class="btnComment" value="COMENTAR">
+                    <button type="submit" class="btnEdit"><img src="img/edit.png" alt="Edit" id="editIcon"></button>
+                    <button id="btnDelete" class="btnDelete" data-id="${revs.id}"><img src="img/delete.png" alt="Delete" id="deleteIcon"></button>
+                </div>
+                `;
+    });
+  });
 };
-// const reviewCard = (doc) => {
-//   const component = `
-//         <div id="card" class="card">
-//           <h3>${doc.data().name}</h3>
-//           <h3>${doc.data().review}</h3>
-//         </div>
-//         `;
-//   return component;
-// };
+
+export const quitReview = (deleteReview, reviewId) => {
+  deleteReview(reviewId).then(() => {
+    console.log(`reseña ${reviewId} borrada con exito`);
+  });
+};

@@ -149,6 +149,10 @@ export const buildReview = async (name, post) => {
 // ejemplo promesa
 export const getReview = () => db.collection('reviews').get();
 
+// cuando se obtienen tareas. de la collectacion cada vez que un dato
+// cambie o una nueva tarea sea agregada voy a manejarlo como una funcion callback
+export const onGetReviews = (callback) => db.collection('reviews').onSnapshot(callback);
+
 // leer datos “get” para recuperar toda la colección. llevar a main?
 // export const getCollectonReview = () => {
 //   db.collection("reviews")
@@ -166,3 +170,5 @@ export const getReview = () => db.collection('reviews').get();
 //       console.log(${doc.id} => ${doc.data()});
 //   });
 // });
+
+export const deleteReview = (id) => db.collection('reviews').doc(id).delete();

@@ -587,7 +587,7 @@ header{
     padding-top:50px;
 }
 /*fin menu responsive*/
-#card{
+#reviewCard{
     position: relative;
     width: 278px;
     height: auto;
@@ -596,4 +596,10 @@ header{
     background: #FFFAFD;
     border: 2px solid #D797D3;
     box-sizing: border-box;
+}
+#deleteIcon{
+    width: 20px;
+}
+#editIcon{
+    width: 20px;
 }
