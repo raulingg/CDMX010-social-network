@@ -1,13 +1,10 @@
 /* eslint-disable quotes */
-import { newUserAccount, loginUser, googleAuth, facebookAuth, buildReview } from './lib/firebase.js';
+import { newUserAccount, loginUser, googleAuth, facebookAuth, buildReview, getReview } from './lib/firebase.js';
 import { routes, onNavigate } from "./routes.js";
 import { signupFunc } from './components/signup.js';
 import { loginFunc } from './components/login.js';
 import { places, placeCard, setCards } from './components/places.js';
-import { newReview } from "./components/retro.js";
-// import { newReview } from "./utils/retroviewUtils.js";
-// import { places, placeCard } from "./views/placeCards.js";
-// import { setCards } from "./utils/firstviewUtils.js";
+import { newReview, seeReviews } from "./components/retro.js";
 
 let rootDiv = null;
 
@@ -17,7 +14,7 @@ function btnLogin() {
   rootDiv.innerHTML = navigate;
 }
 
-// panatalla welcome
+// pantalla welcome
 function btnSignUp() {
   const navigate = onNavigate("/signUp");
   rootDiv.innerHTML = navigate;
@@ -29,16 +26,6 @@ function back() {
   rootDiv.innerHTML = navigate;
 }
 
-// ambas pantallas
-function loginGmail() {
-  googleAuth(onNavigate, rootDiv);
-}
-
-// ambas pantallas
-function loginFacebook() {
-  facebookAuth(onNavigate, rootDiv);
-}
-
 // pantalla 3 de
 export function lugares() {
   const html = setCards(places, placeCard);
@@ -46,23 +33,20 @@ export function lugares() {
   cardPlace.innerHTML = html;
 }
 
+// ambas pantallas
+function loginGmail() {
+  googleAuth(onNavigate, rootDiv, lugares);
+}
+
+// ambas pantallas
+function loginFacebook() {
+  facebookAuth(onNavigate, rootDiv, lugares);
+}
+
 function viewOnePlace() {
   const navigate = onNavigate("/bellasArtes");
   rootDiv.innerHTML = navigate;
-  // cargar aqui la info del contenedor rewies
 }
-
-// function postnew() {
-//   newReview();
-// }
-
-// function bReviews() {
-// se lleva a la firebase cuando cambie de vista a reseña
-//
-//   const oneReview = reviewCard();
-//   const reviewsContainer = document.querySelector("#reviewsContainer");
-//   reviewsContainer.innerHTML = oneReview;
-// }
 
 window.addEventListener("DOMContentLoaded", () => {
   rootDiv = document.getElementById("root");
@@ -88,6 +72,7 @@ window.addEventListener("DOMContentLoaded", () => {
       viewOnePlace();
     } else if (target.id === "postIt") {
       newReview(buildReview);
+      seeReviews(getReview);
     }
   });
   // console.log(document.querySelector('#returnArrow'));

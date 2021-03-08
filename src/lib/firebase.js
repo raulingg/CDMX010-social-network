@@ -1,11 +1,10 @@
 const firebaseConfig = {
-  apiKey: "AIzaSyDP4-xDQtn-5NB8-ICDuVPVNmxzB3WrYcE",
-  authDomain: "red-social--mxchilazo.firebaseapp.com",
-  projectId: "red-social--mxchilazo",
-  storageBucket: "red-social--mxchilazo.appspot.com",
-  messagingSenderId: "905471998919",
-  appId: "1:905471998919:web:eed9430c0611304c3e77e2",
-  measurementId: "G-VM890W7PCY",
+  apiKey: 'AIzaSyDP4-xDQtn-5NB8-ICDuVPVNmxzB3WrYcE',
+  authDomain: 'red-social--mxchilazo.firebaseapp.com',
+  projectId: 'red-social--mxchilazo',
+  storageBucket: 'red-social--mxchilazo.appspot.com',
+  messagingSenderId: '905471998919',
+  appId: '1:905471998919:web:eed9430c0611304c3e77e2',
 };
 // Initialize Firebase
 firebase.initializeApp(firebaseConfig);
@@ -17,11 +16,11 @@ function saveData(user) {
     uid: user.user.uid,
     email: user.user.email,
   };
-  db.collection("users")
+  db.collection('users')
     .doc()
     .set(usuario)
     .then(() => {
-      console.log("Document successfully written!");
+      console.log('Document successfully written!');
     });
 }
 
@@ -34,7 +33,7 @@ export const newUserAccount = (email, password, onNavigate, rootDiv, lugares) =>
       // Signed in
       // ...
       saveData(user);
-      const navigate = onNavigate("/mxchilazo");
+      const navigate = onNavigate('/mxchilazo');
       rootDiv.innerHTML = navigate;
       lugares();
       console.log(user);
@@ -53,7 +52,7 @@ export const loginUser = (email, password, onNavigate, rootDiv, lugares) => {
     .auth()
     .signInWithEmailAndPassword(email, password)
     .then((user) => {
-      const navigate = onNavigate("/mxchilazo");
+      const navigate = onNavigate('/mxchilazo');
       rootDiv.innerHTML = navigate;
       lugares();
       console.log(user);
@@ -68,7 +67,7 @@ export const loginUser = (email, password, onNavigate, rootDiv, lugares) => {
 };
 
 // autentificacion google
-export const googleAuth = (onNavigate, rootDiv) => {
+export const googleAuth = (onNavigate, rootDiv, lugares) => {
   const provider = new firebase.auth.GoogleAuthProvider();
   firebase
     .auth()
@@ -81,7 +80,7 @@ export const googleAuth = (onNavigate, rootDiv) => {
       // The signed-in user info.
       const user = result.user;
       // ...
-      const navigate = onNavigate("/mxchilazo");
+      const navigate = onNavigate('/mxchilazo');
       rootDiv.innerHTML = navigate;
       lugares();
       console.log(result);
@@ -99,7 +98,7 @@ export const googleAuth = (onNavigate, rootDiv) => {
 };
 
 // autentificacion facebook
-export const facebookAuth = (onNavigate, rootDiv) => {
+export const facebookAuth = (onNavigate, rootDiv, lugares) => {
   const provider = new firebase.auth.FacebookAuthProvider();
   firebase
     .auth()
@@ -112,7 +111,7 @@ export const facebookAuth = (onNavigate, rootDiv) => {
       // This gives you a Facebook Access Token. You can use it to access the Facebook API.
       const accessToken = credential.accessToken;
       // ...
-      const navigate = onNavigate("/mxchilazo");
+      const navigate = onNavigate('/mxchilazo');
       rootDiv.innerHTML = navigate;
       lugares();
       console.log(result);
@@ -137,33 +136,30 @@ export const createUser = async (email, password) => {
   });
 }; */
 
-// ejemplo promesa
-// export const getPost = () => db.collection('reviews').get();
-
 // escribir datos del post a db
 export const buildReview = async (name, post) => {
   await db
-    .collection("reviews")
+    .collection('reviews')
     .doc()
     .set({ name, post })
     .then(() => {
-      console.log("Document successfully written!");
+      console.log('Document successfully written!');
     });
 };
-
-// const getReview = () => db.collection("reviews").get();
+// ejemplo promesa
+export const getReview = () => db.collection('reviews').get();
 
 // leer datos “get” para recuperar toda la colección. llevar a main?
-export const getCollectonReview = () => {
-  db.collection("reviews")
-    .get()
-    .then((querySnapshot) => {
-      querySnapshot.forEach((doc) => {
-        // doc.data() is never undefined for query doc snapshots
-        console.log(doc.id, " => ", doc.data());
-      });
-    });
-};
+// export const getCollectonReview = () => {
+//   db.collection("reviews")
+//     .get()
+//     .then((querySnapshot) => {
+//       querySnapshot.forEach((doc) => {
+//         // doc.data() is never undefined for query doc snapshots
+//         console.log(doc.id, " => ", doc.data());
+//       });
+//     });
+// };
 
 // db.collection("users").get().then((querySnapshot) => {
 //   querySnapshot.forEach((doc) => {

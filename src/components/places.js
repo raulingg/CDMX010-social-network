@@ -73,7 +73,6 @@ export const placeCard = (place) => {
   return component;
 };
 
-// funcion es de first Utils
 export const setCards = (places, placeCard) => {
   let html = '';
   places.forEach(place => {
