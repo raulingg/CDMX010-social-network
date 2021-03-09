@@ -146,6 +146,7 @@ export const buildReview = async (name, post) => {
       console.log('Document successfully written!');
     });
 };
+
 // ejemplo promesa
 export const getReview = () => db.collection('reviews').get();
 
@@ -172,3 +173,5 @@ export const onGetReviews = (callback) => db.collection('reviews').onSnapshot(ca
 // });
 
 export const deleteReview = (id) => db.collection('reviews').doc(id).delete();
+
+export const editReview = (id) => db.collection('reviews').doc(id).get();

@@ -374,6 +374,44 @@ a:hover{
     margin: 0 0;
 }
 
+/* #info{
+    left: 44px;
+} */
+#placeViewSingle{
+    text-align: center;
+}
+
+#pPlace{
+    font-style: normal;
+    font-weight: bold;
+    font-size: 11px;
+    line-height: 13px;
+    color: #000000;
+    text-align: justify;
+    width: 80vw;
+    margin-left: 35px;
+}
+
+#postContainer{
+    text-align: center;
+}
+
+.postIt{
+    width: 114px;
+    height: 30px;
+    left: 203px;
+    top: 598px;
+    background: #E9429C;
+    border-radius: 63px;
+    color: white;
+}
+
+.inpStyle{
+    border: 2px solid #E9429C;
+    font-family:  'Montserrat', sans-serif;
+    width: 80vw;
+}
+
 /*------------------- INICIA MENÚ ------------------------------------*/
 body {
 margin: 0px;
