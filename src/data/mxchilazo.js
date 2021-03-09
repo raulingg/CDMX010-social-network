@@ -1,18 +1,18 @@
 export default {
   place: [
     {
-      name: 'Museo Nacional de Antropología (MNA)',
-      delegation: 'Miguel Hidalgo',
-      img: 'https://media.timeout.com/images/100564319/380/285/image.jpg',
-      location: 'Reforma s/n, Polanco, CDMX, esquina con Gandhi, 11560.',
-      description: 'Este Museo es un básico cuando se trata de aprender de las culturas prehispánicas, en su acervo incluye colecciones arqueológicas y etnográficas del país. Inaugurado en septiembre de 1964, este recinto es considerado el museo más grande de América Latina. Sus exhibiciones temporales también son un punto a destacar, nos han traído exposiciones internacionales muy interesantes.',
-    },
-    {
       name: 'Palacio de Bellas Artes',
       delegation: 'Cuauhtémoc',
       img: 'https://thehappening.com/wp-content/uploads/2018/06/palacio-de-bellas-artes.jpg',
       location: 'Juárez s/n, Centro, CDMX, esquina con Eje Central Lázaro Cárdenas, 06050.',
       description: 'El Palacio es famoso no sólo por su arquitectura, sino por su acervo ya que alberga 17 murales de artistas nacionales que se elaboraron entre 1928 y 1963. También alberga al Museo del Palacio de Bellas Artes y cuenta con tres salas; Manuel M. Ponce, Sala Adamo Aboari y la principal, siendo esta última el lugar por excelencia para disfrutar de óperas, música de cámara y obras de teatro.',
+    },
+    {
+      name: 'Museo Nacional de Antropología (MNA)',
+      delegation: 'Miguel Hidalgo',
+      img: 'https://media.timeout.com/images/100564319/380/285/image.jpg',
+      location: 'Reforma s/n, Polanco, CDMX, esquina con Gandhi, 11560.',
+      description: 'Este Museo es un básico cuando se trata de aprender de las culturas prehispánicas, en su acervo incluye colecciones arqueológicas y etnográficas del país. Inaugurado en septiembre de 1964, este recinto es considerado el museo más grande de América Latina. Sus exhibiciones temporales también son un punto a destacar, nos han traído exposiciones internacionales muy interesantes.',
     },
     {
       name: 'Biblioteca Vasconcelos',

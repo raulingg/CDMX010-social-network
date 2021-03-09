@@ -43,11 +43,11 @@ export const retroView = `
         <h3>Bellas Artes</h3>
         <h3>Cuautémoc</h3>
         <img id="" src="" alt="" />
-        <img id="placeImg" src="img/palacio-bellas-artes-large.jpg" alt=""/>
+        <img id="placeImg" src="https://thehappening.com/wp-content/uploads/2018/06/palacio-de-bellas-artes.jpg" alt=""/>
         <div id="info">
-            <p>Juárez s/nCentro,Ciudad de México, 06050</p>
+            <p id="pPlace">Juárez s/nCentro,Ciudad de México, 06050</p>
             <h4>ACERCA DE:</h4>
-            <p>
+            <p id="pPlace">
             El Palacio es famoso no sólo por su arquitectura, sino por su acervo
             ya que alberga 17 murales de artistas nacionales que se elaboraron
             entre 1928 y 1963. Los murales que destacan El Hombre...
@@ -56,9 +56,10 @@ export const retroView = `
     </div>
 
     <div id="postContainer">
-        <textarea id="name" class="name" placeholder="Usuario"></textarea>
-        <textarea id="review" class="reviewText" placeholder="Escribe aquí tu reseña"></textarea>
+        <textarea id="name" class="name clear inpStyle" placeholder="Usuario"></textarea>
+        <textarea id="review" class="reviewText clear inpStyle" placeholder="Escribe aquí tu reseña"></textarea>
         <input type="button" id="postIt" class="postIt" value="PUBLICAR">
+        <input type="button" id="editPostIt" class="editPostIt postIt" style = "display: none" value="EDITAR">
     </div>
     
     <h2>RESEÑAS</h2>
@@ -115,8 +116,8 @@ export const seeReviews = async (onGetReviews) => {
                 <div id="reviewCard" class="reviewCard">
                     <p>Usuario: ${revs.name}<br>Reseña: ${revs.post}</p>
                     <input type="button" id="btnComment" class="btnComment" value="COMENTAR">
-                    <button type="submit" class="btnEdit"><img src="img/edit.png" alt="Edit" id="editIcon"></button>
-                    <button id="btnDelete" class="btnDelete" data-id="${revs.id}"><img src="img/delete.png" alt="Delete" id="deleteIcon"></button>
+                    <button data-id="${revs.id}" id="btnEdit" type="submit" class="btnEdit">EDITAR</button>
+                    <button id="btnDelete" class="btnDelete" data-id="${revs.id}">Borrar</button>
                 </div>
                 `;
     });
@@ -125,6 +126,18 @@ export const seeReviews = async (onGetReviews) => {
 
 export const quitReview = (deleteReview, reviewId) => {
   deleteReview(reviewId).then(() => {
-    console.log(`reseña ${reviewId} borrada con exito`);
+    console.log(`reseña ${reviewId} borrada`);
+  });
+};
+
+export const modifyReview = (editReview, reviewId) => {
+  console.log(editReview+reviewId);
+  document.querySelector('#postIt').style.display = 'none';
+  document.querySelector('#editPostIt').style.display = 'block';
+  editReview(reviewId).then((rev) => {
+    const textReview = rev.data();
+    console.log(textReview);
+    document.querySelector('#name').value = textReview.name;
+    document.querySelector('#review').value = textReview.post;
   });
 };

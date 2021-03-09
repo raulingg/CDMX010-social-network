@@ -1,10 +1,10 @@
 /* eslint-disable quotes */
-import { newUserAccount, loginUser, googleAuth, facebookAuth, buildReview, onGetReviews, deleteReview } from './lib/firebase.js';
+import { newUserAccount, loginUser, googleAuth, facebookAuth, buildReview, onGetReviews, deleteReview, editReview } from './lib/firebase.js';
 import { routes, onNavigate } from "./routes.js";
 import { signupFunc } from './components/signup.js';
 import { loginFunc } from './components/login.js';
 import { places, placeCard, setCards } from './components/places.js';
-import { newReview, seeReviews, quitReview } from "./components/retro.js";
+import { newReview, seeReviews, quitReview, modifyReview } from "./components/retro.js";
 
 let rootDiv = null;
 // let reviewId = e.target.dataset.id;
@@ -49,6 +49,16 @@ function viewOnePlace() {
   rootDiv.innerHTML = navigate;
 }
 
+function limpiar() {
+  const limpiar = document.getElementsByClassName("clear")[0].value = "";
+  return limpiar;
+}
+
+function reLimpiar() {
+  const reLimpiar = document.getElementsByClassName("clear")[1].value = "";
+  return reLimpiar;
+}
+
 window.addEventListener("DOMContentLoaded", () => {
   rootDiv = document.getElementById("root");
   rootDiv.innerHTML = routes[window.location.pathname];
@@ -75,8 +85,12 @@ window.addEventListener("DOMContentLoaded", () => {
     } else if (target.id === "postIt") {
       newReview(buildReview);
       seeReviews(onGetReviews);
+      limpiar();
+      reLimpiar();
     } else if (target.id === "btnDelete") {
       quitReview(deleteReview, target.dataset.id);
+    } else if (target.id === "btnEdit") {
+      modifyReview(editReview, target.dataset.id);
     }
   });
   // console.log(document.querySelector('#returnArrow'));
