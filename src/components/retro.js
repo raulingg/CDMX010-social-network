@@ -70,12 +70,12 @@ export const retroView = `
 `;
 
 // subir info a firestore
-export const newReview = async (buildReview) => {
+export const newReview = async (buildReview, limpiar, reLimpiar) => {
   const name = document.querySelector('#name').value;
   const post = document.querySelector('#review').value;
   console.log(name, post);
   // comenzar firebase registra posteos en fs
-  await buildReview(name, post);
+  await buildReview(name, post, limpiar, reLimpiar);
   //   });
 };
 
@@ -115,9 +115,9 @@ export const seeReviews = async (onGetReviews) => {
       reviewsContainer.innerHTML += `
                 <div id="reviewCard" class="reviewCard">
                     <p>Usuario: ${revs.name}<br>Reseña: ${revs.post}</p>
-                    <input type="button" id="btnComment" class="btnComment" value="COMENTAR">
-                    <button data-id="${revs.id}" id="btnEdit" type="submit" class="btnEdit">EDITAR</button>
-                    <button id="btnDelete" class="btnDelete" data-id="${revs.id}">Borrar</button>
+                    <input type="button" id="btnComment" class="btnComment btnStyle" value="Comentar">
+                    <button data-id="${revs.id}" id="btnEdit" type="submit" class="btnEdit btnStyle">Editar</button>
+                    <button id="btnDelete" class="btnDelete btnStyle" data-id="${revs.id}">Borrar</button>
                 </div>
                 `;
     });
@@ -130,14 +130,27 @@ export const quitReview = (deleteReview, reviewId) => {
   });
 };
 
-export const modifyReview = (editReview, reviewId) => {
-  console.log(editReview+reviewId);
+export const modifyReview = (getReview, reviewId) => {
+  console.log(getReview + reviewId);
   document.querySelector('#postIt').style.display = 'none';
   document.querySelector('#editPostIt').style.display = 'block';
-  editReview(reviewId).then((rev) => {
+  getReview(reviewId).then((rev) => {
     const textReview = rev.data();
     console.log(textReview);
     document.querySelector('#name').value = textReview.name;
     document.querySelector('#review').value = textReview.post;
+  });
+};
+
+export const updateReview = (editReview, reviewId, limpiar, reLimpiar) => {
+  console.log(editReview + reviewId);
+  document.querySelector('#postIt').style.display = 'block';
+  document.querySelector('#editPostIt').style.display = 'none';
+  editReview(reviewId, {
+    name: document.querySelector('#name').value,
+    post: document.querySelector('#review').value,
+  }).then(() => {
+    limpiar();
+    reLimpiar();
   });
 };

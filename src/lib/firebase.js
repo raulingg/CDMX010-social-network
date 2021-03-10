@@ -137,18 +137,20 @@ export const createUser = async (email, password) => {
 }; */
 
 // escribir datos del post a db
-export const buildReview = async (name, post) => {
+export const buildReview = async (name, post, limpiar, reLimpiar) => {
   await db
     .collection('reviews')
     .doc()
     .set({ name, post })
     .then(() => {
       console.log('Document successfully written!');
+      limpiar();
+      reLimpiar();
     });
 };
 
 // ejemplo promesa
-export const getReview = () => db.collection('reviews').get();
+// export const getReview = () => db.collection('reviews').get();
 
 // cuando se obtienen tareas. de la collectacion cada vez que un dato
 // cambie o una nueva tarea sea agregada voy a manejarlo como una funcion callback
@@ -174,4 +176,6 @@ export const onGetReviews = (callback) => db.collection('reviews').onSnapshot(ca
 
 export const deleteReview = (id) => db.collection('reviews').doc(id).delete();
 
-export const editReview = (id) => db.collection('reviews').doc(id).get();
+export const getReview = (id) => db.collection('reviews').doc(id).get();
+
+export const editReview = (id, updatedReview) => db.collection('reviews').doc(id).update(updatedReview);

@@ -412,6 +412,27 @@ a:hover{
     width: 80vw;
 }
 
+#reviewCard{
+    position: relative;
+    width: 278px;
+    height: auto;
+    left: 44px;
+    background: #FFFAFD;
+    border: 5px solid #D797D3;
+    box-sizing: border-box;
+    margin: 15px 0;
+}
+
+.btnStyle{
+    background: #d03beb;;
+    color:  white;
+    border-radius: 63px;
+    text-align: center;
+    font-family:  'Montserrat', sans-serif;
+    width: 87px;
+    font-weight: bold;
+}
+
 /*------------------- INICIA MENÚ ------------------------------------*/
 body {
 margin: 0px;
@@ -425,7 +446,7 @@ padding-left: 0px;
 }
 
 #menu{
-    background: #F1F1F1; /* color de la barra*/
+    background: #D797D3; /* color de la barra*/
     color: #333; /*color de las tres barritas*/
     height: 50px;
     border-bottom: 1px solid rgba(0,0,0,.05); /* borde inferior de la barra*/
@@ -625,16 +646,6 @@ header{
     padding-top:50px;
 }
 /*fin menu responsive*/
-#reviewCard{
-    position: relative;
-    width: 278px;
-    height: auto;
-    left: 44px;
-
-    background: #FFFAFD;
-    border: 2px solid #D797D3;
-    box-sizing: border-box;
-}
 #deleteIcon{
     width: 20px;
 }
