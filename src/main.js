@@ -1,30 +1,19 @@
 /* eslint-disable quotes */
-import { newUserAccount, loginUser, googleAuth, facebookAuth, buildReview, onGetReviews, deleteReview, getReview, editReview } from './lib/firebase.js';
-import { routes, onNavigate } from "./routes.js";
+import * as firebase from './lib/firebase.js';
+import { routes, onNavigate, loadFirebase} from "./routes.js";
 import { signupFunc } from './components/signup.js';
 import { loginFunc } from './components/login.js';
 import { places, placeCard, setCards } from './components/places.js';
 import { newReview, seeReviews, quitReview, modifyReview, updateReview, likesReview } from "./components/retro.js";
 
-let rootDiv = null;
+let rootDiv = document.getElementById("root");
+
+loadFirebase(firebase);
+
 // let reviewId = e.target.dataset.id;
-
-// panatalla welcome
-function btnLogin() {
-  const navigate = onNavigate("/logIn");
-  rootDiv.innerHTML = navigate;
-}
-
-// pantalla welcome
-function btnSignUp() {
-  const navigate = onNavigate("/signUp");
-  rootDiv.innerHTML = navigate;
-}
-
 // ambas pantallas
 function back() {
-  const navigate = onNavigate("/");
-  rootDiv.innerHTML = navigate;
+  onNavigate("/");
 }
 
 // pantalla 3 de
@@ -45,8 +34,7 @@ function loginFacebook() {
 }
 
 function viewOnePlace() {
-  const navigate = onNavigate("/bellasArtes");
-  rootDiv.innerHTML = navigate;
+  onNavigate("/bellasArtes");
 }
 
 export function limpiar() {
@@ -63,16 +51,15 @@ export function reLimpiar() {
 
 window.addEventListener("DOMContentLoaded", () => {
   let updateId = null;
-  rootDiv = document.getElementById("root");
-  rootDiv.innerHTML = routes[window.location.pathname];
+
+
+  const component = routes[window.location.pathname];
+  component(rootDiv, firebase);
+
   rootDiv.addEventListener("click", (event) => {
     const target = event.target;
     // if (target.id !== 'signUp' && target.id !== 'login') return;
-    if (target.id === "login") {
-      btnLogin();
-    } else if (target.id === "signUp") {
-      btnSignUp();
-    } else if (target.id === "btnSignUp") {
+    if (target.id === "btnSignUp") {
       signupFunc(newUserAccount, onNavigate, rootDiv, lugares);
     } else if (target.id === "enter") {
       loginFunc(loginUser, onNavigate, rootDiv, lugares);
@@ -106,7 +93,6 @@ window.addEventListener("DOMContentLoaded", () => {
 });
 
 window.onpopstate = () => {
-  rootDiv.innerHTML = routes[window.location.pathname];
-  btnLogin();
-  btnSignUp();
+  const component = routes[window.location.pathname];
+  component(rootDiv, firebase);
 };
