@@ -110,12 +110,12 @@ export const seeReviews = async (onGetReviews) => {
       // console.log(doc.data());
 
       const revs = doc.data();
-      revs.id = doc.id;
-      console.log(revs);
+      revs.id = doc.id;// solo id de la review
+      console.log(revs);// info de las reviews name, post y id
       reviewsContainer.innerHTML += `
                 <div id="reviewCard" class="reviewCard">
                     <p>Usuario: ${revs.name}<br>Reseña: ${revs.post}</p>
-                    <input type="button" id="btnComment" class="btnComment btnStyle" value="Comentar">
+                    <input type="image" id="likeIcon" class="likeIcon" data-id="${revs.id}" src="img/like.png">
                     <button data-id="${revs.id}" id="btnEdit" type="submit" class="btnEdit btnStyle">Editar</button>
                     <button id="btnDelete" class="btnDelete btnStyle" data-id="${revs.id}">Borrar</button>
                 </div>
@@ -153,4 +153,8 @@ export const updateReview = (editReview, reviewId, limpiar, reLimpiar) => {
     limpiar();
     reLimpiar();
   });
+};
+
+export const likesReview = () => {
+  console.log(localStorage.getItem('idUser'));// llevar a los likes
 };

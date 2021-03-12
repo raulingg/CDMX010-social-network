@@ -66,7 +66,7 @@ export const placeCard = (place) => {
       <div id="rectangle">
         <h3 id="namePlace">${place.name}</h3>
         <h4 id="delegation">${place.delegation}</h4>
-        <img id="likeIcon" src="img/like.png" alt="">
+        <img id="likeIcon" src="img/like2.png" alt="">
       </div>
     </div>
     `;

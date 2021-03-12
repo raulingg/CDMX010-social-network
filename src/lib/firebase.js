@@ -12,11 +12,28 @@ const db = firebase.firestore();
 
 // escribir datos
 function saveData(user) {
+  console.log(user.user.uid); // uid de usuario
+  console.log(user.user.email);
   const usuario = {
     uid: user.user.uid,
     email: user.user.email,
   };
   db.collection('users')
+    .doc()
+    .set(usuario)
+    .then(() => {
+      console.log('Document successfully written!');
+    });
+}
+
+function saveUs(user) {
+  console.log(user.user.uid); // uid de usuario
+  console.log(user.user.email);
+  const usuario = {
+    uid: user.user.uid,
+    email: user.user.email,
+  };
+  db.collection('reviews')
     .doc()
     .set(usuario)
     .then(() => {
@@ -33,16 +50,20 @@ export const newUserAccount = (email, password, onNavigate, rootDiv, lugares) =>
       // Signed in
       // ...
       saveData(user);
+      saveUs(user);
       const navigate = onNavigate('/mxchilazo');
       rootDiv.innerHTML = navigate;
       lugares();
-      console.log(user);
+      // console.log(user);
+      // console.log(user.user);
+      // console.log(user.user.email);
     })
     .catch((error) => {
       const errorCode = error.code;
       const errorMessage = error.message;
       // ..
-      console.log(errorCode + errorMessage);
+      // console.log(errorCode + errorMessage);
+      alert(errorMessage);
     });
 };
 
@@ -56,13 +77,16 @@ export const loginUser = (email, password, onNavigate, rootDiv, lugares) => {
       rootDiv.innerHTML = navigate;
       lugares();
       console.log(user);
+      localStorage.setItem('idUser', user.user.uid);
       // Signed in
       // ...
     })
     .catch((error) => {
       const errorCode = error.code;
       const errorMessage = error.message;
-      console.log(errorCode + errorMessage);
+      const email = error.email;
+      // console.log(errorCode + errorMessage + email);
+      alert(errorMessage);
     });
 };
 
@@ -179,3 +203,17 @@ export const deleteReview = (id) => db.collection('reviews').doc(id).delete();
 export const getReview = (id) => db.collection('reviews').doc(id).get();
 
 export const editReview = (id, updatedReview) => db.collection('reviews').doc(id).update(updatedReview);
+
+/* function getUser(user, id) {
+  const getUs = {
+    uid: user.user.uid,
+  };
+  db.collection('users')
+    .doc(id)
+    .get(getUs);
+}
+console.log(getUser()); */
+
+// export const likecount = (id, uid) => db.collection('reviews').doc(id).
+// collection('likes').add({ uid });
+//  uid: user.user.uid

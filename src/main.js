@@ -4,7 +4,7 @@ import { routes, onNavigate } from "./routes.js";
 import { signupFunc } from './components/signup.js';
 import { loginFunc } from './components/login.js';
 import { places, placeCard, setCards } from './components/places.js';
-import { newReview, seeReviews, quitReview, modifyReview, updateReview } from "./components/retro.js";
+import { newReview, seeReviews, quitReview, modifyReview, updateReview, likesReview } from "./components/retro.js";
 
 let rootDiv = null;
 // let reviewId = e.target.dataset.id;
@@ -97,6 +97,8 @@ window.addEventListener("DOMContentLoaded", () => {
       updateId = target.dataset.id;
     } else if (target.id === "editPostIt") {
       updateReview(editReview, updateId, limpiar, reLimpiar);
+    } else if (target.id === "likeIcon") {
+      likesReview();
     }
   });
   // console.log(document.querySelector('#returnArrow'));
