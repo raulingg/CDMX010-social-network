@@ -1,3 +1,5 @@
+import { onNavigate } from "../routes.js";
+
 export const logIn = (target, firebase) => {
   const html = `
   <div id="loginViewContainer" class="container">
@@ -13,12 +15,19 @@ export const logIn = (target, firebase) => {
   </div>
   `;
   target.innerHTML =  html
-} 
 
-export const loginFunc = (loginUser, onNavigate, rootDiv, lugares) => {
-  const email = document.querySelector('#loginEmail').value;
-  const password = document.querySelector('#loginPassword').value;
-  // console.log(email + password);
-  // usuarios existentes en auth
-  loginUser(email, password, onNavigate, rootDiv, lugares);
-};
+  document.getElementById('enter').addEventListener("click", () => {
+    const email = document.querySelector('#loginEmail').value;
+    const password = document.querySelector('#loginPassword').value;
+    firebase.loginUser(email, password)
+      .then((user) => {
+        onNavigate('/mxchilazo');
+        
+        localStorage.setItem('idUser', user.user.uid);
+      })
+      .catch((error) => {
+        const errorMessage = error.message;
+        alert(errorMessage);
+      });
+  });
+}

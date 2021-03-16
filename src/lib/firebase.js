@@ -68,26 +68,8 @@ export const newUserAccount = (email, password, onNavigate, rootDiv, lugares) =>
 };
 
 // usuarios existentes
-export const loginUser = (email, password, onNavigate, rootDiv, lugares) => {
-  firebase
-    .auth()
-    .signInWithEmailAndPassword(email, password)
-    .then((user) => {
-      const navigate = onNavigate('/mxchilazo');
-      rootDiv.innerHTML = navigate;
-      lugares();
-      console.log(user);
-      localStorage.setItem('idUser', user.user.uid);
-      // Signed in
-      // ...
-    })
-    .catch((error) => {
-      const errorCode = error.code;
-      const errorMessage = error.message;
-      const email = error.email;
-      // console.log(errorCode + errorMessage + email);
-      alert(errorMessage);
-    });
+export const loginUser = (email, password) => {
+  return firebase.auth().signInWithEmailAndPassword(email, password);
 };
 
 // autentificacion google

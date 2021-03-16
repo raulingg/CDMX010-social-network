@@ -2,7 +2,6 @@
 import * as firebase from './lib/firebase.js';
 import { routes, onNavigate, loadFirebase} from "./routes.js";
 import { signupFunc } from './components/signup.js';
-import { loginFunc } from './components/login.js';
 import { places, placeCard, setCards } from './components/places.js';
 import { newReview, seeReviews, quitReview, modifyReview, updateReview, likesReview } from "./components/retro.js";
 
@@ -61,8 +60,6 @@ window.addEventListener("DOMContentLoaded", () => {
     // if (target.id !== 'signUp' && target.id !== 'login') return;
     if (target.id === "btnSignUp") {
       signupFunc(newUserAccount, onNavigate, rootDiv, lugares);
-    } else if (target.id === "enter") {
-      loginFunc(loginUser, onNavigate, rootDiv, lugares);
     } else if (target.id === "btnGmail") {
       loginGmail();
     } else if (target.id === "btnFacebook") {

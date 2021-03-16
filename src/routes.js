@@ -1,7 +1,7 @@
 import { welcome } from './components/welcome.js';
 import { signUpView } from './components/signup.js';
 import { logIn } from './components/login.js';
-// import { placesView } from './components/places.js';
+import { placesView } from './components/places.js';
 // import { retroView } from './components/retro.js';
 
 let firebase = null
@@ -14,7 +14,7 @@ export const routes = {
   '/': welcome,
   '/signUp': signUpView,
   '/logIn': logIn,
-  // '/mxchilazo': placesView,
+  '/mxchilazo': placesView,
   // '/bellasArtes': retroView,
 };
 
